@@ -1,0 +1,7 @@
+{
+  "name": "Create_Roise",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
