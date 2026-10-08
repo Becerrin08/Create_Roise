@@ -1,0 +1,129 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="dark">
+    <ion-title>Hola de Nuevo!!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="dark">
+  <!-- Banner Principal -->
+  <ion-card style="margin: 0 0 16px 0; height: 160px; display: flex; align-items: center; justify-content: center; background-color: #333;">
+    <ion-icon name="imageOutline" style="font-size: 64px; color: #666;"></ion-icon>
+  </ion-card>
+
+  <!-- Sección Categorías -->
+  <ion-text color="light">
+    <h3 style="font-weight: bold; margin-bottom: 12px;">Categorías</h3>
+  </ion-text>
+
+  <!-- Categoría 1: Hamburguesas -->
+  <div style="margin-bottom: 16px;">
+    <ion-button fill="solid" color="medium" size="small" style="margin-bottom: 8px;">
+      Hamburguesas
+    </ion-button>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="4" style="padding: 2px;">
+          <ion-card style="height: 80px; margin: 0; display: flex; align-items: center; justify-content: center; background-color: #333;">
+            <ion-icon name="imageOutline" style="font-size: 32px; color: #666;"></ion-icon>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4" style="padding: 2px;">
+          <ion-card style="height: 80px; margin: 0; display: flex; align-items: center; justify-content: center; background-color: #333;">
+            <ion-icon name="imageOutline" style="font-size: 32px; color: #666;"></ion-icon>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4" style="padding: 2px;">
+          <ion-card style="height: 80px; margin: 0; display: flex; align-items: center; justify-content: center; background-color: #333;">
+            <ion-icon name="imageOutline" style="font-size: 32px; color: #666;"></ion-icon>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Categoría 2: Alitas -->
+  <div style="margin-bottom: 16px;">
+    <ion-button fill="solid" color="medium" size="small" style="margin-bottom: 8px;">
+      Alitas
+    </ion-button>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="4" style="padding: 2px;">
+          <ion-card style="height: 80px; margin: 0; display: flex; align-items: center; justify-content: center; background-color: #333;">
+            <ion-icon name="imageOutline" style="font-size: 32px; color: #666;"></ion-icon>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4" style="padding: 2px;">
+          <ion-card style="height: 80px; margin: 0; display: flex; align-items: center; justify-content: center; background-color: #333;">
+            <ion-icon name="imageOutline" style="font-size: 32px; color: #666;"></ion-icon>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4" style="padding: 2px;">
+          <ion-card style="height: 80px; margin: 0; display: flex; align-items: center; justify-content: center; background-color: #333;">
+            <ion-icon name="imageOutline" style="font-size: 32px; color: #666;"></ion-icon>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Botón Ver Menú Completo -->
+  <ion-button expand="block" fill="outline" color="light" routerLink="/menu" style="margin-top: 16px;">
+    VER MENÚ COMPLETO
+  </ion-button>
+</ion-content>
+
+<!-- Menú Inferior (Footer Bar) -->
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-text-center">
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small" routerLink="/dashboard">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="homeOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Inicio</span>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small" routerLink="/menu">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="listOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Menú</span>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <!-- Botón de Carrito con enlace activo -->
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small" routerLink="/cart">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="cartOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Carrito</span>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="squareOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Pedidos</span>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="personCircleOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Perfil</span>
+            </div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

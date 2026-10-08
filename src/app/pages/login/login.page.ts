@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { 
   IonContent, 
   IonGrid, 
@@ -7,15 +6,18 @@ import {
   IonCol, 
   IonText, 
   IonCard, 
+  IonItem, 
+  IonInput, 
   IonButton, 
   IonIcon 
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { imageOutline, ellipseOutline } from 'ionicons/icons';
-import { Router } from '@angular/router';
+import { imageOutline } from 'ionicons/icons';
+import { Router, RouterLink } from '@angular/router';
+
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
+  selector: 'app-login',
+  templateUrl: './login.page.html',
   imports: [
     IonContent, 
     IonGrid, 
@@ -23,13 +25,15 @@ import { Router } from '@angular/router';
     IonCol, 
     IonText, 
     IonCard, 
+    IonItem, 
+    IonInput, 
     IonButton, 
     IonIcon,
     RouterLink
   ]
 })
-export class HomePage {
+export class LoginPage {
   constructor() {
-    addIcons({ imageOutline, ellipseOutline });
+    addIcons({ imageOutline });
   }
 }
