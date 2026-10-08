@@ -43,7 +43,7 @@
       </ion-col>
     </ion-row>
 
-    <!-- Grid de imágenes Hamburguesas -->
+    <!-- Grid Hamburguesas -->
     <ion-row class="ion-margin-bottom">
       <ion-col size="4">
         <ion-card color="medium" class="ion-no-margin" style="height: 75px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">
@@ -74,7 +74,7 @@
       </ion-col>
     </ion-row>
 
-    <!-- Grid de imágenes Alitas -->
+    <!-- Grid Alitas -->
     <ion-row class="ion-margin-bottom">
       <ion-col size="4">
         <ion-card color="medium" class="ion-no-margin" style="height: 75px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">
@@ -93,10 +93,10 @@
       </ion-col>
     </ion-row>
 
-    <!-- Botón Ver menú completo -->
+    <!-- Botón Ver menú completo redireccionando a /menu -->
     <ion-row class="ion-margin-top ion-margin-bottom">
       <ion-col size="12">
-        <ion-button expand="block" fill="outline" color="light" style="--border-color: #7b8e9d; font-weight: 600;">
+        <ion-button expand="block" fill="outline" color="light" style="--border-color: #7b8e9d; font-weight: 600;" routerLink="/menu">
           Ver menú completo
         </ion-button>
       </ion-col>
@@ -105,29 +105,29 @@
   </ion-grid>
 </ion-content>
 
-<!-- Toolbar / Barra inferior con pestañas -->
+<!-- Barra inferior de navegación -->
 <ion-footer>
-  <ion-toolbar color="dark">
-    <ion-row class="ion-text-center">
-      <ion-col>
-        <ion-icon name="home-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Perfil</p></ion-text>
+  <ion-toolbar style="--background: #ffffff; --border-color: #e2e8f0;">
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col routerLink="/dashboard" style="cursor: pointer;">
+        <ion-icon name="home-outline" style="font-size: 22px; color: #334155;"></ion-icon>
+        <p style="font-size: 0.75rem; margin: 2px 0 0 0; color: #334155; font-weight: 600;">Inicio</p>
       </ion-col>
-      <ion-col>
-        <ion-icon name="list-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Menú</p></ion-text>
+      <ion-col routerLink="/menu" style="cursor: pointer;">
+        <ion-icon name="list-outline" style="font-size: 22px; color: #64748b;"></ion-icon>
+        <p style="font-size: 0.75rem; margin: 2px 0 0 0; color: #64748b;">Menú</p>
       </ion-col>
-      <ion-col>
-        <ion-icon name="cart-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Carrito</p></ion-text>
+      <ion-col style="cursor: pointer;">
+        <ion-icon name="cart-outline" style="font-size: 22px; color: #64748b;"></ion-icon>
+        <p style="font-size: 0.75rem; margin: 2px 0 0 0; color: #64748b;">Carrito</p>
       </ion-col>
-      <ion-col>
-        <ion-icon name="square-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Pedidos</p></ion-text>
+      <ion-col style="cursor: pointer;">
+        <ion-icon name="square-outline" style="font-size: 22px; color: #64748b;"></ion-icon>
+        <p style="font-size: 0.75rem; margin: 2px 0 0 0; color: #64748b;">Pedidos</p>
       </ion-col>
-      <ion-col>
-        <ion-icon name="person-circle-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Perfil</p></ion-text>
+      <ion-col style="cursor: pointer;">
+        <ion-icon name="person-circle-outline" style="font-size: 22px; color: #64748b;"></ion-icon>
+        <p style="font-size: 0.75rem; margin: 2px 0 0 0; color: #64748b;">Perfil</p>
       </ion-col>
     </ion-row>
   </ion-toolbar>
