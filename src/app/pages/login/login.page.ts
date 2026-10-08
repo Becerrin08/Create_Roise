@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { 
   IonContent, 
   IonGrid, 
@@ -11,14 +10,14 @@ import {
   IonInput, 
   IonButton, 
   IonIcon 
-} from '@ionic/angular'; // <-- Cambiado aquí
+} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { imageOutline } from 'ionicons/icons';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  standalone: true,
   imports: [
     IonContent, 
     IonGrid, 

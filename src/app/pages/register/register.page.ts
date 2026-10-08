@@ -1,19 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { 
+  IonContent, 
+  IonGrid, 
+  IonRow, 
+  IonCol, 
+  IonText, 
+  IonCard, 
+  IonItem, 
+  IonInput, 
+  IonButton, 
+  IonIcon 
+} from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { imageOutline } from 'ionicons/icons';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonContent, 
+    IonGrid, 
+    IonRow, 
+    IonCol, 
+    IonText, 
+    IonCard, 
+    IonItem, 
+    IonInput, 
+    IonButton, 
+    IonIcon,
+    RouterLink
+  ]
 })
-export class RegisterPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+export class RegisterPage {
+  constructor() {
+    addIcons({ imageOutline });
   }
-
 }
