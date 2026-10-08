@@ -1,0 +1,69 @@
+<ion-content class="ion-padding">
+  <ion-grid class="ion-no-padding">
+    
+    <!-- Título principal -->
+    <ion-row class="ion-justify-content-center ion-text-center ion-margin-bottom">
+      <ion-col size="12">
+        <ion-text color="light">
+          <h1 class="ion-no-margin" style="font-weight: 800; font-size: 2.2rem;">Mis Pedidos</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <!-- Lista de Pedidos -->
+    <ion-row class="ion-align-items-center ion-padding-vertical" style="border-bottom: 1px solid #536473;">
+      <ion-col size="7">
+        <ion-text color="light">
+          <h2 class="ion-no-margin" style="font-weight: 700; font-size: 1.4rem;">Pedido #98</h2>
+        </ion-text>
+      </ion-col>
+      <ion-col size="5" class="ion-text-end">
+        <ion-button fill="outline" color="light" size="small" style="--border-color: #7b8e9d; font-size: 0.75rem; text-transform: none;">
+          Entregado
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-padding-vertical" style="border-bottom: 1px solid #536473;">
+      <ion-col size="7">
+        <ion-text color="light">
+          <h2 class="ion-no-margin" style="font-weight: 700; font-size: 1.4rem;">Pedido #97</h2>
+        </ion-text>
+      </ion-col>
+      <ion-col size="5" class="ion-text-end">
+        <ion-button fill="outline" color="light" size="small" style="--border-color: #7b8e9d; font-size: 0.75rem; text-transform: none;">
+          Entregado
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
+
+<!-- Toolbar / Barra inferior con pestañas -->
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-row class="ion-text-center">
+      <ion-col routerLink="/dashboard">
+        <ion-icon name="home-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Perfil</p></ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="list-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Menú</p></ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="cart-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Carrito</p></ion-text>
+      </ion-col>
+      <ion-col routerLink="/orders">
+        <ion-icon name="square-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Pedidos</p></ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="person-circle-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Perfil</p></ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

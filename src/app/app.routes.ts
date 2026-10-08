@@ -18,20 +18,8 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/dashboard/dashboard.page').then((m) => m.DashboardPage),
   },
   {
-    path: 'menu',
-    loadComponent: () => import('./pages/menu/menu.page').then((m) => m.MenuPage),
-  },
-  {
-    path: 'detalle',
-    loadComponent: () => import('./pages/detalle/detalle.page').then((m) => m.DetallePage),
-  },
-  {
-    path: 'cart',
-    loadComponent: () => import('./pages/cart/cart.page').then((m) => m.CartPage),
-  },
-  {
-    path: 'checkout',
-    loadComponent: () => import('./pages/checkout/checkout.page').then((m) => m.CheckoutPage),
+    path: 'orders',
+    loadComponent: () => import('./pages/orders/orders.page').then((m) => m.OrdersPage),
   },
   {
     path: '',
