@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { 
   IonContent, 
   IonHeader, 
@@ -59,7 +59,7 @@ import {
 export class CheckoutPage {
   metodoPago: string = 'efectivo';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   seleccionarMetodo(metodo: string) {
     this.metodoPago = metodo;
@@ -67,5 +67,7 @@ export class CheckoutPage {
 
   confirmarPedido() {
     console.log('Pedido confirmado con método:', this.metodoPago);
+    // Redirige al menú principal (o '/dashboard')
+    this.router.navigate(['/menu']);
   }
 }

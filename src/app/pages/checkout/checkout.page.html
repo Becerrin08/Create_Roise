@@ -1,137 +1,129 @@
-<ion-content class="ion-padding">
-  <ion-grid class="ion-no-padding">
+<ion-header class="ion-no-border">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cart"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Datos de Entrega</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <!-- Header -->
-    <ion-row class="ion-align-items-center ion-margin-bottom">
-      <ion-col size="2">
-        <ion-button fill="clear" color="light" routerLink="/cart">
-          <ion-icon name="chevron-back-circle-outline" style="font-size: 32px;"></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col size="10">
-        <ion-text color="light">
-          <h1 class="ion-no-margin" style="font-weight: 800; font-size: 1.8rem;">Datos de Entrega</h1>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-
-    <!-- Dirección -->
+<ion-content class="ion-padding" color="dark">
+  <!-- Campo: Dirección -->
+  <div style="margin-bottom: 20px;">
     <ion-text color="light">
-      <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Dirección</p>
+      <small style="color: #aaa;">Dirección</small>
     </ion-text>
-    <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
+    <ion-item color="light" style="--background: #f0f0f0; border-radius: 8px; margin-top: 6px;">
       <ion-input placeholder="Calle, número, colonia"></ion-input>
     </ion-item>
+  </div>
 
-    <!-- Teléfono -->
+  <!-- Campo: Teléfono -->
+  <div style="margin-bottom: 20px;">
     <ion-text color="light">
-      <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Teléfono</p>
+      <small style="color: #aaa;">Teléfono</small>
     </ion-text>
-    <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
+    <ion-item color="light" style="--background: #f0f0f0; border-radius: 8px; margin-top: 6px;">
       <ion-input type="tel" placeholder="10 Dígitos"></ion-input>
     </ion-item>
+  </div>
 
-    <hr style="border-color: #536473; opacity: 0.5; margin: 16px 0;">
-
-    <!-- Selección Método de Pago -->
+  <!-- Selección de Método de Pago -->
+  <div style="margin-bottom: 20px;">
     <ion-text color="light">
-      <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px;">Método de pago</p>
+      <small style="color: #aaa;">Método de pago</small>
     </ion-text>
-    <ion-row class="ion-margin-bottom">
-      <ion-col size="6">
-        <ion-button expand="block" [fill]="metodoPago === 'tarjeta' ? 'solid' : 'outline'" color="light" (click)="seleccionarMetodo('tarjeta')" style="font-weight: 700;">
-          Tarjeta
-        </ion-button>
-      </ion-col>
-      <ion-col size="6">
-        <ion-button expand="block" [fill]="metodoPago === 'efectivo' ? 'solid' : 'outline'" color="light" (click)="seleccionarMetodo('efectivo')" style="font-weight: 700;">
-          Efectivo
-        </ion-button>
-      </ion-col>
-    </ion-row>
 
-    <!-- FORMULARIO SI ELIGE TARJETA -->
-    @if (metodoPago === 'tarjeta') {
-      <ion-text color="light">
-        <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Número de tarjeta</p>
-      </ion-text>
-      <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
-        <ion-input type="number" placeholder="0000 0000 0000 0000"></ion-input>
-      </ion-item>
-
-      <ion-text color="light">
-        <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Nombre de la tarjeta</p>
-      </ion-text>
-      <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
-        <ion-input placeholder="Como aparece en su tarjeta"></ion-input>
-      </ion-item>
-
-      <ion-row class="ion-margin-bottom">
-        <ion-col size="6">
-          <ion-text color="light">
-            <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Vencimiento</p>
-          </ion-text>
-          <ion-item fill="outline" color="dark" style="--border-color: #536473; --border-radius: 4px;">
-            <ion-input placeholder="MM/AA"></ion-input>
-          </ion-item>
+    <ion-grid class="ion-no-padding" style="margin-top: 8px;">
+      <ion-row>
+        <ion-col size="6" style="padding-right: 4px;">
+          <ion-button 
+            expand="block" 
+            [fill]="metodoPago === 'tarjeta' ? 'solid' : 'outline'" 
+            color="medium" 
+            (click)="seleccionarMetodo('tarjeta')">
+            TARJETA
+          </ion-button>
         </ion-col>
-        <ion-col size="6">
-          <ion-text color="light">
-            <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">CVV</p>
-          </ion-text>
-          <ion-item fill="outline" color="dark" style="--border-color: #536473; --border-radius: 4px;">
-            <ion-input type="password" placeholder="123"></ion-input>
-          </ion-item>
+        <ion-col size="6" style="padding-left: 4px;">
+          <ion-button 
+            expand="block" 
+            [fill]="metodoPago === 'efectivo' ? 'solid' : 'outline'" 
+            color="light" 
+            (click)="seleccionarMetodo('efectivo')">
+            EFECTIVO
+          </ion-button>
         </ion-col>
       </ion-row>
-    }
+    </ion-grid>
+  </div>
 
-    <!-- FORMULARIO SI ELIGE EFECTIVO -->
-    @if (metodoPago === 'efectivo') {
-      <ion-text color="light">
-        <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">¿Con cuánto vas a pagar?</p>
-      </ion-text>
-      <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
-        <ion-input type="number" placeholder="Ej. 300"></ion-input>
-      </ion-item>
-    }
+  <!-- Campo opcional si es en efectivo -->
+  <div *ngIf="metodoPago === 'efectivo'" style="margin-bottom: 24px;">
+    <ion-text color="light">
+      <small style="color: #aaa;">¿Con cuánto vas a pagar?</small>
+    </ion-text>
+    <ion-item color="light" style="--background: #f0f0f0; border-radius: 8px; margin-top: 6px;">
+      <ion-input type="number" placeholder="Ej. 300"></ion-input>
+    </ion-item>
+  </div>
 
-    <!-- Botón Confirmar Pedido -->
-    <ion-row class="ion-margin-top ion-margin-bottom">
-      <ion-col size="12">
-        <ion-button expand="block" color="light" style="color: #23313d; font-weight: 700; --border-radius: 4px;" (click)="confirmarPedido()">
-          Confirmar Pedido
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
-  </ion-grid>
+  <!-- Botón Confirmar Pedido (Redirige al Menú) -->
+  <ion-button expand="block" color="medium" routerLink="/menu" style="margin-top: 24px; font-weight: bold;">
+    CONFIRMAR PEDIDO
+  </ion-button>
 </ion-content>
 
-<!-- Toolbar inferior -->
-<ion-footer>
-  <ion-toolbar color="dark">
-    <ion-row class="ion-text-center">
-      <ion-col>
-        <ion-icon name="home-outline" style="font-size: 24px; color: #ffffff;" routerLink="/dashboard"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Inicio</p></ion-text>
-      </ion-col>
-      <ion-col>
-        <ion-icon name="list-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Menú</p></ion-text>
-      </ion-col>
-      <ion-col>
-        <ion-icon name="cart-outline" style="font-size: 24px; color: #ffffff;" routerLink="/cart"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Carrito</p></ion-text>
-      </ion-col>
-      <ion-col>
-        <ion-icon name="square-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Pedidos</p></ion-text>
-      </ion-col>
-      <ion-col>
-        <ion-icon name="person-circle-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
-        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Perfil</p></ion-text>
-      </ion-col>
-    </ion-row>
+<!-- Menú Inferior (Footer Bar) -->
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-text-center">
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small" routerLink="/dashboard">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="homeOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Inicio</span>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small" routerLink="/menu">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="listOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Menú</span>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small" routerLink="/cart">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="cartOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Carrito</span>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="squareOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Pedidos</span>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="2.4">
+          <ion-button fill="clear" color="dark" size="small">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <ion-icon name="personCircleOutline" style="font-size: 20px;"></ion-icon>
+              <span style="font-size: 10px;">Perfil</span>
+            </div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-footer>

@@ -1,23 +1,29 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { 
   IonContent, 
+  IonHeader, 
+  IonTitle, 
+  IonToolbar, 
+  IonButtons, 
+  IonBackButton, 
+  IonCard, 
+  IonText, 
+  IonItem, 
+  IonInput, 
+  IonButton, 
+  IonFooter, 
   IonGrid, 
   IonRow, 
   IonCol, 
-  IonText, 
-  IonCard, 
-  IonItem, 
-  IonTextarea, 
-  IonButton, 
-  IonFooter, 
-  IonToolbar, 
   IonIcon 
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { 
-  arrowBackCircleOutline, 
   imageOutline, 
+  addOutline, 
+  removeOutline, 
   homeOutline, 
   listOutline, 
   cartOutline, 
@@ -28,32 +34,52 @@ import {
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.page.html',
+  styleUrls: ['./detalle.page.scss'],
+  standalone: true,
   imports: [
+    CommonModule,
+    RouterLink,
     IonContent, 
+    IonHeader, 
+    IonTitle, 
+    IonToolbar, 
+    IonButtons, 
+    IonBackButton, 
+    IonCard, 
+    IonText, 
+    IonItem, 
+    IonInput, 
+    IonButton, 
+    IonFooter, 
     IonGrid, 
     IonRow, 
     IonCol, 
-    IonText, 
-    IonCard, 
-    IonItem, 
-    IonTextarea, 
-    IonButton, 
-    IonFooter, 
-    IonToolbar, 
-    IonIcon,
-    RouterLink
+    IonIcon
   ]
 })
 export class DetallePage {
+  cantidad: number = 1;
+
   constructor() {
-    addIcons({ 
-      arrowBackCircleOutline, 
-      imageOutline, 
-      homeOutline, 
-      listOutline, 
-      cartOutline, 
-      squareOutline, 
-      personCircleOutline 
+    addIcons({
+      imageOutline,
+      addOutline,
+      removeOutline,
+      homeOutline,
+      listOutline,
+      cartOutline,
+      squareOutline,
+      personCircleOutline
     });
+  }
+
+  incrementar() {
+    this.cantidad++;
+  }
+
+  decrementar() {
+    if (this.cantidad > 1) {
+      this.cantidad--;
+    }
   }
 }
