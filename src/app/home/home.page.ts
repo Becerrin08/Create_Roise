@@ -1,34 +1,61 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { 
   IonContent, 
-  IonGrid, 
-  IonRow, 
-  IonCol, 
-  IonText, 
+  IonHeader, 
+  IonTitle, 
+  IonToolbar, 
   IonCard, 
+  IonBadge, 
   IonButton, 
-  IonIcon 
+  IonFooter, 
+  IonIcon,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonText
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { imageOutline, ellipseOutline } from 'ionicons/icons';
+import { 
+  imageOutline, 
+  homeOutline, 
+  listOutline, 
+  cartOutline, 
+  squareOutline, 
+  personCircleOutline 
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+  standalone: true,
   imports: [
     IonContent, 
-    IonGrid, 
-    IonRow, 
-    IonCol, 
-    IonText, 
+    IonHeader, 
+    IonTitle, 
+    IonToolbar, 
     IonCard, 
+    IonBadge, 
     IonButton, 
-    IonIcon
+    IonFooter, 
+    IonIcon, 
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonText,
+    RouterLink
   ]
 })
 export class HomePage {
   constructor() {
-    // Registramos los íconos de Ionicons
-    addIcons({ imageOutline, ellipseOutline });
+    addIcons({
+      imageOutline,
+      homeOutline,
+      listOutline,
+      cartOutline,
+      squareOutline,
+      personCircleOutline
+    });
   }
 }

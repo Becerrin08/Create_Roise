@@ -1,0 +1,137 @@
+<ion-content class="ion-padding">
+  <ion-grid class="ion-no-padding">
+
+    <!-- Header -->
+    <ion-row class="ion-align-items-center ion-margin-bottom">
+      <ion-col size="2">
+        <ion-button fill="clear" color="light" routerLink="/cart">
+          <ion-icon name="chevron-back-circle-outline" style="font-size: 32px;"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="10">
+        <ion-text color="light">
+          <h1 class="ion-no-margin" style="font-weight: 800; font-size: 1.8rem;">Datos de Entrega</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <!-- Dirección -->
+    <ion-text color="light">
+      <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Dirección</p>
+    </ion-text>
+    <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
+      <ion-input placeholder="Calle, número, colonia"></ion-input>
+    </ion-item>
+
+    <!-- Teléfono -->
+    <ion-text color="light">
+      <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Teléfono</p>
+    </ion-text>
+    <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
+      <ion-input type="tel" placeholder="10 Dígitos"></ion-input>
+    </ion-item>
+
+    <hr style="border-color: #536473; opacity: 0.5; margin: 16px 0;">
+
+    <!-- Selección Método de Pago -->
+    <ion-text color="light">
+      <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px;">Método de pago</p>
+    </ion-text>
+    <ion-row class="ion-margin-bottom">
+      <ion-col size="6">
+        <ion-button expand="block" [fill]="metodoPago === 'tarjeta' ? 'solid' : 'outline'" color="light" (click)="seleccionarMetodo('tarjeta')" style="font-weight: 700;">
+          Tarjeta
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" [fill]="metodoPago === 'efectivo' ? 'solid' : 'outline'" color="light" (click)="seleccionarMetodo('efectivo')" style="font-weight: 700;">
+          Efectivo
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- FORMULARIO SI ELIGE TARJETA -->
+    @if (metodoPago === 'tarjeta') {
+      <ion-text color="light">
+        <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Número de tarjeta</p>
+      </ion-text>
+      <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
+        <ion-input type="number" placeholder="0000 0000 0000 0000"></ion-input>
+      </ion-item>
+
+      <ion-text color="light">
+        <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Nombre de la tarjeta</p>
+      </ion-text>
+      <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
+        <ion-input placeholder="Como aparece en su tarjeta"></ion-input>
+      </ion-item>
+
+      <ion-row class="ion-margin-bottom">
+        <ion-col size="6">
+          <ion-text color="light">
+            <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Vencimiento</p>
+          </ion-text>
+          <ion-item fill="outline" color="dark" style="--border-color: #536473; --border-radius: 4px;">
+            <ion-input placeholder="MM/AA"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-text color="light">
+            <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">CVV</p>
+          </ion-text>
+          <ion-item fill="outline" color="dark" style="--border-color: #536473; --border-radius: 4px;">
+            <ion-input type="password" placeholder="123"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    }
+
+    <!-- FORMULARIO SI ELIGE EFECTIVO -->
+    @if (metodoPago === 'efectivo') {
+      <ion-text color="light">
+        <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">¿Con cuánto vas a pagar?</p>
+      </ion-text>
+      <ion-item fill="outline" color="dark" class="ion-margin-bottom" style="--border-color: #536473; --border-radius: 4px;">
+        <ion-input type="number" placeholder="Ej. 300"></ion-input>
+      </ion-item>
+    }
+
+    <!-- Botón Confirmar Pedido -->
+    <ion-row class="ion-margin-top ion-margin-bottom">
+      <ion-col size="12">
+        <ion-button expand="block" color="light" style="color: #23313d; font-weight: 700; --border-radius: 4px;" (click)="confirmarPedido()">
+          Confirmar Pedido
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
+
+<!-- Toolbar inferior -->
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-icon name="home-outline" style="font-size: 24px; color: #ffffff;" routerLink="/dashboard"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Inicio</p></ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="list-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Menú</p></ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="cart-outline" style="font-size: 24px; color: #ffffff;" routerLink="/cart"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Carrito</p></ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Pedidos</p></ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="person-circle-outline" style="font-size: 24px; color: #ffffff;"></ion-icon>
+        <ion-text color="light"><p style="font-size: 0.75rem; margin: 0;">Perfil</p></ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
