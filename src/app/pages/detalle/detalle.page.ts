@@ -6,11 +6,9 @@ import {
   IonRow, 
   IonCol, 
   IonText, 
-  IonList, 
-  IonItem, 
-  IonLabel, 
   IonCard, 
-  IonBadge, 
+  IonItem, 
+  IonTextarea, 
   IonButton, 
   IonFooter, 
   IonToolbar, 
@@ -18,8 +16,8 @@ import {
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { 
+  arrowBackCircleOutline, 
   imageOutline, 
-  addOutline, 
   homeOutline, 
   listOutline, 
   cartOutline, 
@@ -28,19 +26,17 @@ import {
 } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.page.html',
+  selector: 'app-detalle',
+  templateUrl: './detalle.page.html',
   imports: [
     IonContent, 
     IonGrid, 
     IonRow, 
     IonCol, 
     IonText, 
-    IonList, 
-    IonItem, 
-    IonLabel, 
     IonCard, 
-    IonBadge, 
+    IonItem, 
+    IonTextarea, 
     IonButton, 
     IonFooter, 
     IonToolbar, 
@@ -48,11 +44,11 @@ import {
     RouterLink
   ]
 })
-export class MenuPage {
+export class DetallePage {
   constructor() {
     addIcons({ 
+      arrowBackCircleOutline, 
       imageOutline, 
-      addOutline, 
       homeOutline, 
       listOutline, 
       cartOutline, 
