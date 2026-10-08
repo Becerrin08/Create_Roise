@@ -13,26 +13,31 @@
         </ion-text>
 
         <!-- Cuadro del Logo con ion-card e ion-icon -->
-        <ion-card color="medium" class="ion-margin-vertical ion-padding-vertical" style="height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+        <ion-card color="medium" class="ion-margin-vertical ion-padding-vertical"
+          style="height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
           <ion-icon name="image-outline" style="font-size: 90px; color: #b3c2cd;"></ion-icon>
         </ion-card>
 
-        <!-- Botón Iniciar Sesión (Outline con ion-button) -->
-        <ion-button expand="block" fill="outline" color="light" class="ion-margin-top">
+        <!-- Botón Iniciar Sesión con Redirección -->
+        <ion-button expand="block" fill="outline" color="light" class="ion-margin-top" routerLink="/login">
           Iniciar Sesión
         </ion-button>
 
-        <!-- Divisor decorativo con ion-row y ion-text -->
+        <!-- Divisor decorativo con ion-row y ion-icon -->
         <ion-row class="ion-align-items-center ion-margin-vertical">
-          <ion-col><hr style="border-color: #536473; opacity: 0.5;"></ion-col>
+          <ion-col>
+            <hr style="border-color: #536473; opacity: 0.5;">
+          </ion-col>
           <ion-col size="auto">
             <ion-icon name="ellipse-outline" color="medium" style="font-size: 14px;"></ion-icon>
           </ion-col>
-          <ion-col><hr style="border-color: #536473; opacity: 0.5;"></ion-col>
+          <ion-col>
+            <hr style="border-color: #536473; opacity: 0.5;">
+          </ion-col>
         </ion-row>
 
-        <!-- Botón Registrarse (Solid con ion-button) -->
-        <ion-button expand="block" fill="solid" color="light">
+        <!-- Botón Registrarse -->
+        <ion-button expand="block" fill="solid" color="light" routerLink="/register">
           Registrarse
         </ion-button>
 
