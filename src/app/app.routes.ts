@@ -2,28 +2,39 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
   {
-    path: 'login',
-    loadComponent: () => import('./pages/login/login.page').then((m) => m.LoginPage),
+    path: 'iniciarSesion',
+    loadComponent: () => import('./pages/iniciar-sesion/iniciar-sesion.page').then((m) => m.IniciarSesionPage),
   },
   {
-    path: 'register',
-    loadComponent: () => import('./pages/register/register.page').then((m) => m.RegisterPage),
+    path: 'registrarse',
+    loadComponent: () => import('./pages/registrarse/registrarse.page').then((m) => m.RegistrarsePage),
   },
   {
-    path: 'dashboard',
-    loadComponent: () => import('./pages/dashboard/dashboard.page').then((m) => m.DashboardPage),
-  },
-  {
-    path: 'orders',
-    loadComponent: () => import('./pages/orders/orders.page').then((m) => m.OrdersPage),
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: 'tabs',
+    loadComponent: () => import('./pages/tabs/tabs.page').then((m) => m.TabsPage),
+    children: [
+      {
+        path: 'inicio',
+        loadComponent: () => import('./pages/inicio/inicio.page').then((m) => m.InicioPage),
+      },
+      {
+        path: 'menu',
+        loadComponent: () => import('./pages/menu/menu.page').then((m) => m.MenuPage),
+      },
+      {
+        path: '',
+        redirectTo: '/tabs/inicio',
+        pathMatch: 'full',
+      },
+    ],
   },
 ];

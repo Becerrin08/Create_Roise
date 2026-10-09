@@ -1,43 +1,48 @@
-<ion-content class="ion-padding ion-text-center">
-  <ion-grid class="ion-no-padding">
-    <ion-row class="ion-justify-content-center ion-align-items-center" style="min-height: 85vh;">
-      <ion-col size="12" size-md="8" size-lg="6">
+<ion-content class="ion-padding" style="--background: #212c37;">
+  <ion-grid style="height: 100%; display: flex; align-items: center;">
+    <ion-row class="ion-justify-content-center" style="width: 100%;">
+      <ion-col size="12" size-md="8" size-lg="5" class="ion-text-center">
 
-        <!-- Título con ion-text e ion-text-center -->
+        <!-- Título principal -->
         <ion-text color="light">
-          <h1 class="ion-no-margin" style="font-weight: 800; font-size: 2.2rem; line-height: 1.2;">
-            Wing´s Burger<br>
-            &<br>
+          <ion-text style="display: block; font-size: 2.2rem; font-weight: 800; line-height: 1.2;">
+            Wing´s Burger
+          </ion-text>
+          <ion-text style="display: block; font-size: 1.8rem; font-weight: 700; margin: 8px 0;">
+            &
+          </ion-text>
+          <ion-text style="display: block; font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 35px;">
             Beers
-          </h1>
+          </ion-text>
         </ion-text>
 
-        <!-- Cuadro del Logo con ion-card e ion-icon -->
-        <ion-card color="medium" class="ion-margin-vertical ion-padding-vertical"
-          style="height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-          <ion-icon name="image-outline" style="font-size: 90px; color: #b3c2cd;"></ion-icon>
+        <!-- Cuadro con icono de imagen -->
+        <ion-card
+          style="--background: #4a5866; height: 230px; border-radius: 4px; box-shadow: none; margin: 0 auto 35px auto; display: flex; align-items: center; justify-content: center;">
+          <ion-card-content>
+            <ion-icon name="image" style="font-size: 90px; color: #8fa0b0;"></ion-icon>
+          </ion-card-content>
         </ion-card>
 
-        <!-- Botón Iniciar Sesión con Redirección -->
-        <ion-button expand="block" fill="outline" color="light" class="ion-margin-top" routerLink="/login">
+        <!-- Botón Iniciar Sesión -->
+        <ion-button expand="block" color="light" fill="solid" routerLink="/iniciarSesion"
+          style="--border-radius: 6px; font-weight: 600; margin-bottom: 25px; height: 48px; --color: #212c37; text-transform: none; font-size: 1.05rem;">
           Iniciar Sesión
         </ion-button>
 
-        <!-- Divisor decorativo con ion-row y ion-icon -->
-        <ion-row class="ion-align-items-center ion-margin-vertical">
-          <ion-col>
-            <hr style="border-color: #536473; opacity: 0.5;">
+        <!-- Separador central con círculo -->
+        <ion-row class="ion-align-items-center ion-justify-content-center" style="margin-bottom: 25px;">
+          <ion-col size="5" style="border-bottom: 1px solid #5a6978; padding: 0;"></ion-col>
+          <ion-col size="2" class="ion-text-center" style="padding: 0;">
+            <ion-icon name="ellipse-outline"
+              style="color: #a0b0c0; font-size: 14px; vertical-align: middle;"></ion-icon>
           </ion-col>
-          <ion-col size="auto">
-            <ion-icon name="ellipse-outline" color="medium" style="font-size: 14px;"></ion-icon>
-          </ion-col>
-          <ion-col>
-            <hr style="border-color: #536473; opacity: 0.5;">
-          </ion-col>
+          <ion-col size="5" style="border-bottom: 1px solid #5a6978; padding: 0;"></ion-col>
         </ion-row>
 
         <!-- Botón Registrarse -->
-        <ion-button expand="block" fill="solid" color="light" routerLink="/register">
+        <ion-button expand="block" fill="outline" color="light" routerLink="/registrarse"
+          style="--border-radius: 6px; font-weight: 600; height: 48px; text-transform: none; font-size: 1.05rem; --border-color: #6b7c8d;">
           Registrarse
         </ion-button>
 

@@ -1,63 +1,37 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { 
   IonContent, 
   IonGrid, 
   IonRow, 
   IonCol, 
   IonText, 
-  IonList, 
-  IonItem, 
-  IonLabel, 
   IonCard, 
+  IonIcon, 
   IonBadge, 
-  IonButton, 
-  IonFooter, 
-  IonToolbar, 
-  IonIcon 
+  IonButton 
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { 
-  imageOutline, 
-  addOutline, 
-  homeOutline, 
-  listOutline, 
-  cartOutline, 
-  squareOutline, 
-  personCircleOutline 
-} from 'ionicons/icons';
+import { image, addOutline, fastFoodOutline, flameOutline, pintOutline, beerOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
+  styleUrls: ['./menu.page.scss'],
+  standalone: true,
   imports: [
     IonContent, 
     IonGrid, 
     IonRow, 
     IonCol, 
     IonText, 
-    IonList, 
-    IonItem, 
-    IonLabel, 
     IonCard, 
+    IonIcon, 
     IonBadge, 
-    IonButton, 
-    IonFooter, 
-    IonToolbar, 
-    IonIcon,
-    RouterLink
+    IonButton
   ]
 })
 export class MenuPage {
   constructor() {
-    addIcons({ 
-      imageOutline, 
-      addOutline, 
-      homeOutline, 
-      listOutline, 
-      cartOutline, 
-      squareOutline, 
-      personCircleOutline 
-    });
+    addIcons({ image, addOutline, fastFoodOutline, flameOutline, pintOutline, beerOutline });
   }
 }

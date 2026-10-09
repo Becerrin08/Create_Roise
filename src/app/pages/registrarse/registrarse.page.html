@@ -1,0 +1,67 @@
+<ion-content class="ion-padding" style="--background: #212c37;">
+  <ion-grid style="height: 100%; display: flex; align-items: center; position: relative;">
+
+    <!-- Botón de regresar flotante estilo tarjeta -->
+    <ion-button fill="clear" routerLink="/home"
+      style="position: absolute; top: 20%; left: 0; --color: #ffffff; --background: #2d3845; --border-radius: 4px; width: 36px; height: 36px; --padding-start: 0; --padding-end: 0; margin: 0; z-index: 10;">
+      <ion-icon name="chevron-back-outline" style="font-size: 20px;"></ion-icon>
+    </ion-button>
+
+    <ion-row class="ion-justify-content-center" style="width: 100%;">
+      <ion-col size="12" size-md="8" size-lg="5" class="ion-text-center">
+
+        <!-- Título principal -->
+        <ion-text color="light">
+          <ion-text style="display: block; font-size: 2rem; font-weight: 700; margin-bottom: 25px;">
+            Registrarse
+          </ion-text>
+        </ion-text>
+
+        <!-- Cuadro con icono de imagen -->
+        <ion-card
+          style="--background: #4a5866; height: 210px; border-radius: 4px; box-shadow: none; margin: 0 auto 25px auto; display: flex; align-items: center; justify-content: center;">
+          <ion-card-content>
+            <ion-icon name="image" style="font-size: 85px; color: #8fa0b0;"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Campo Nombre -->
+        <ion-text color="light" class="ion-text-start">
+          <ion-label
+            style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Nombre</ion-label>
+        </ion-text>
+        <ion-item lines="none"
+          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 15px; --inner-padding-end: 0px; --padding-start: 10px;">
+          <ion-input type="text" style="--color: #ffffff; font-size: 0.95rem;"></ion-input>
+        </ion-item>
+
+        <!-- Campo Correo -->
+        <ion-text color="light" class="ion-text-start">
+          <ion-label
+            style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Correo</ion-label>
+        </ion-text>
+        <ion-item lines="none"
+          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 15px; --inner-padding-end: 0px; --padding-start: 10px;">
+          <ion-input type="email" style="--color: #ffffff; font-size: 0.95rem;"></ion-input>
+        </ion-item>
+
+        <!-- Campo Contraseña -->
+        <ion-text color="light" class="ion-text-start">
+          <ion-label
+            style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Contraseña</ion-label>
+        </ion-text>
+        <ion-item lines="none"
+          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 25px; --inner-padding-end: 0px; --padding-start: 10px;">
+          <ion-input type="password" style="--color: #ffffff; font-size: 0.95rem;"></ion-input>
+        </ion-item>
+
+        <!-- Botón Registrarse -->
+        <ion-button routerLink="/tabs/inicio" expand="block" fill="outline" color="light"
+          style="--border-radius: 6px; font-weight: 600; height: 46px; text-transform: none; font-size: 1.05rem; --border-color: #6b7c8d; margin-top: 10px;">
+          Registrarse
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
