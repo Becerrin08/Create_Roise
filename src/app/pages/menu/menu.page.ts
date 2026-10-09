@@ -12,6 +12,7 @@ import {
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { image, addOutline, fastFoodOutline, flameOutline, pintOutline, beerOutline } from 'ionicons/icons';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -27,7 +28,8 @@ import { image, addOutline, fastFoodOutline, flameOutline, pintOutline, beerOutl
     IonCard, 
     IonIcon, 
     IonBadge, 
-    IonButton
+    IonButton,
+    RouterLink
   ]
 })
 export class MenuPage {

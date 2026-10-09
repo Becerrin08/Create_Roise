@@ -1,0 +1,90 @@
+<ion-content class="ion-padding" style="--background: #212c37; padding-bottom: 80px;">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="8" size-lg="6">
+
+        <!-- Header con botón de regresar y título centrado -->
+        <ion-row class="ion-align-items-center ion-margin-bottom"
+          style="position: relative; margin-top: 10px; margin-bottom: 20px;">
+          <ion-col size="auto" style="position: absolute; left: 0; z-index: 10;">
+            <ion-button fill="clear" routerLink="/tabs/menu"
+              style="--color: #ffffff; --padding-start: 0; --padding-end: 0; margin: 0; width: 40px; height: 40px;">
+              <ion-icon name="arrow-back-circle-outline" style="font-size: 38px;"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <ion-text color="light">
+              <ion-text style="display: block; font-size: 2rem; font-weight: 700;">
+                Detalle
+              </ion-text>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <!-- Imagen del Producto -->
+        <ion-card
+          style="--background: #4a5866; height: 180px; border-radius: 4px; box-shadow: none; margin: 0 0 20px 0; display: flex; align-items: center; justify-content: center;">
+          <ion-card-content>
+            <ion-icon name="image" style="font-size: 80px; color: #8fa0b0;"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Título y Descripción -->
+        <ion-text color="light" class="ion-text-start">
+          <ion-text style="display: block; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">
+            Hamburguesa Clásica
+          </ion-text>
+          <ion-text color="medium" style="display: block; font-size: 0.9rem; line-height: 1.35; margin-bottom: 25px;">
+            Carne de res de 150 g con queso cheddar, servida en pan brioche tostado.
+          </ion-text>
+        </ion-text>
+
+        <!-- Notas para la cocina -->
+        <ion-text color="light" class="ion-text-start">
+          <ion-label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">
+            Notas para la cocina
+          </ion-label>
+        </ion-text>
+        <ion-item lines="none"
+          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 30px; --inner-padding-end: 0px; --padding-start: 10px;">
+          <ion-textarea rows="4" placeholder="Ej. Sin cebolla, con poca mayonesa" color="light"
+            style="--color: #ffffff; --placeholder-color: #718096; font-size: 0.95rem;"></ion-textarea>
+        </ion-item>
+
+        <!-- Selector de Cantidad -->
+        <ion-row class="ion-align-items-center ion-justify-content-between" style="margin-bottom: 30px;">
+          <ion-col size="auto">
+            <ion-text color="light">
+              <ion-text style="font-size: 1.2rem; font-weight: 700;">
+                Cantidad
+              </ion-text>
+            </ion-text>
+          </ion-col>
+          <ion-col size="auto">
+            <div
+              style="border: 1px solid #5a6978; border-radius: 4px; display: flex; align-items: center; padding: 2px 8px; background: #212c37;">
+              <ion-button fill="clear"
+                style="--color: #ffffff; --padding-start: 6px; --padding-end: 6px; height: 32px; font-weight: 700; font-size: 1.2rem;">
+                -
+              </ion-button>
+              <ion-text color="light" style="font-size: 1.1rem; font-weight: 700; margin: 0 12px;">
+                1
+              </ion-text>
+              <ion-button fill="clear"
+                style="--color: #ffffff; --padding-start: 6px; --padding-end: 6px; height: 32px; font-weight: 700; font-size: 1.1rem;">
+                +
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- Botón Continuar -->
+        <ion-button routerLink="/tabs/menu" expand="block" color="light" fill="solid"
+          style="--border-radius: 6px; font-weight: 600; height: 48px; --color: #212c37; text-transform: none; font-size: 1.05rem;">
+          Continuar
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
