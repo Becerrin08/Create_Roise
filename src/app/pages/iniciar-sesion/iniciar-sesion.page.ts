@@ -9,15 +9,18 @@ import {
   IonCard, 
   IonCardContent, 
   IonIcon, 
+  IonItem, 
+  IonLabel, 
+  IonInput, 
   IonButton 
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { image, ellipseOutline } from 'ionicons/icons';
+import { image, chevronBackOutline } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-iniciar-sesion',
+  templateUrl: './iniciar-sesion.page.html',
+  styleUrls: ['./iniciar-sesion.page.scss'],
   standalone: true,
   imports: [
     RouterLink,
@@ -29,11 +32,14 @@ import { image, ellipseOutline } from 'ionicons/icons';
     IonCard,
     IonCardContent,
     IonIcon,
+    IonItem,
+    IonLabel,
+    IonInput,
     IonButton
-  ],
+  ]
 })
-export class HomePage {
+export class IniciarSesionPage {
   constructor() {
-    addIcons({ image, ellipseOutline });
+    addIcons({ image, chevronBackOutline });
   }
 }

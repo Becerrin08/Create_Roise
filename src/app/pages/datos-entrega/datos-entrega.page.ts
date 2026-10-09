@@ -6,21 +6,19 @@ import {
   IonRow, 
   IonCol, 
   IonText, 
-  IonCard, 
-  IonCardContent, 
   IonIcon, 
   IonItem, 
   IonLabel, 
-  IonTextarea, 
+  IonInput, 
   IonButton 
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { image, arrowBackCircleOutline } from 'ionicons/icons';
+import { arrowBackCircleOutline } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-detalle',
-  templateUrl: './detalle.page.html',
-  styleUrls: ['./detalle.page.scss'],
+  selector: 'app-datos-entrega',
+  templateUrl: './datos-entrega.page.html',
+  styleUrls: ['./datos-entrega.page.scss'],
   standalone: true,
   imports: [
     RouterLink,
@@ -29,17 +27,21 @@ import { image, arrowBackCircleOutline } from 'ionicons/icons';
     IonRow, 
     IonCol, 
     IonText, 
-    IonCard, 
-    IonCardContent, 
     IonIcon, 
     IonItem, 
     IonLabel, 
-    IonTextarea, 
+    IonInput, 
     IonButton
   ]
 })
-export class DetallePage {
+export class DatosEntregaPage {
+  metodoPago: 'tarjeta' | 'efectivo' = 'tarjeta';
+
   constructor() {
-    addIcons({ image, arrowBackCircleOutline });
+    addIcons({ arrowBackCircleOutline });
+  }
+
+  seleccionarMetodo(metodo: 'tarjeta' | 'efectivo') {
+    this.metodoPago = metodo;
   }
 }

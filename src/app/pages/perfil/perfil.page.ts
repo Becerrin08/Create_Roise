@@ -6,21 +6,17 @@ import {
   IonRow, 
   IonCol, 
   IonText, 
-  IonCard, 
-  IonCardContent, 
+  IonAvatar, 
   IonIcon, 
-  IonItem, 
-  IonLabel, 
-  IonTextarea, 
   IonButton 
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { image, arrowBackCircleOutline } from 'ionicons/icons';
+import { person } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-detalle',
-  templateUrl: './detalle.page.html',
-  styleUrls: ['./detalle.page.scss'],
+  selector: 'app-perfil',
+  templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss'],
   standalone: true,
   imports: [
     RouterLink,
@@ -29,17 +25,13 @@ import { image, arrowBackCircleOutline } from 'ionicons/icons';
     IonRow, 
     IonCol, 
     IonText, 
-    IonCard, 
-    IonCardContent, 
+    IonAvatar, 
     IonIcon, 
-    IonItem, 
-    IonLabel, 
-    IonTextarea, 
     IonButton
   ]
 })
-export class DetallePage {
+export class PerfilPage {
   constructor() {
-    addIcons({ image, arrowBackCircleOutline });
+    addIcons({ person });
   }
 }

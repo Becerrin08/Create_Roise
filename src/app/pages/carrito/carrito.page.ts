@@ -7,20 +7,18 @@ import {
   IonCol, 
   IonText, 
   IonCard, 
-  IonCardContent, 
   IonIcon, 
   IonItem, 
   IonLabel, 
-  IonTextarea, 
   IonButton 
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { image, arrowBackCircleOutline } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-detalle',
-  templateUrl: './detalle.page.html',
-  styleUrls: ['./detalle.page.scss'],
+  selector: 'app-carrito',
+  templateUrl: './carrito.page.html',
+  styleUrls: ['./carrito.page.scss'],
   standalone: true,
   imports: [
     RouterLink,
@@ -30,15 +28,13 @@ import { image, arrowBackCircleOutline } from 'ionicons/icons';
     IonCol, 
     IonText, 
     IonCard, 
-    IonCardContent, 
     IonIcon, 
     IonItem, 
     IonLabel, 
-    IonTextarea, 
     IonButton
   ]
 })
-export class DetallePage {
+export class CarritoPage {
   constructor() {
     addIcons({ image, arrowBackCircleOutline });
   }
