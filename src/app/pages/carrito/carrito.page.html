@@ -1,106 +1,113 @@
-<ion-content class="ion-padding" style="--background: #212c37; padding-bottom: 80px;">
+<ion-content class="ion-padding" style="--background: #000000;">
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-md="8" size-lg="6">
-
-        <!-- Header con botón de regresar y título centrado -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="position: relative; margin-top: 10px; margin-bottom: 20px;">
-          <ion-col size="auto" style="position: absolute; left: 0; z-index: 10;">
-            <ion-button fill="clear" routerLink="/tabs/menu"
-              style="--color: #ffffff; --padding-start: 0; --padding-end: 0; margin: 0; width: 40px; height: 40px;">
-              <ion-icon name="arrow-back-circle-outline" style="font-size: 38px;"></ion-icon>
-            </ion-button>
-          </ion-col>
+      <ion-col size="12" size-md="10" size-lg="8">
+        
+        <!-- Título Carrito Centrado -->
+        <ion-row class="ion-align-items-center ion-margin-bottom" style="margin-top: 18px; margin-bottom: 25px;">
           <ion-col class="ion-text-center">
-            <ion-text color="light">
-              <ion-text style="display: block; font-size: 2rem; font-weight: 700;">
-                Carrito
-              </ion-text>
-            </ion-text>
+            <h1 style="color: #ffffff; display: block; font-size: 1.8rem; font-weight: 700; margin: 0;">
+              Carrito
+            </h1>
           </ion-col>
         </ion-row>
 
-        <!-- Item 1: Hamburguesa Clásica -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="border-bottom: 1px solid #3d4a57; padding-bottom: 18px;">
-          <ion-col size="3">
-            <ion-card
-              style="--background: #4a5866; height: 75px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 32px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4" class="ion-text-start" style="padding-left: 8px;">
-            <ion-text color="light">
-              <div style="font-size: 0.9rem; font-weight: 700; margin-bottom: 6px;">Hamburguesa Clásica</div>
-              <div style="font-size: 1.1rem; font-weight: 700;">$120.00</div>
+        <!-- Mensaje si el carrito está vacío -->
+        @if (itemsCarrito.length === 0) {
+          <div class="ion-text-center" style="margin: 68px 8px;">
+            <ion-text style="color: #888888; display: block; font-size: 1.1rem; margin-bottom: 20px;">
+              Tu carrito está vacío. Agrega algo rico del menú.
             </ion-text>
-          </ion-col>
-          <ion-col size="5" class="ion-text-end">
-            <div
-              style="border: 1px solid #5a6978; border-radius: 4px; display: inline-flex; align-items: center; padding: 2px 6px; background: #212c37;">
-              <ion-button fill="clear"
-                style="--color: #ffffff; --padding-start: 4px; --padding-end: 4px; height: 30px; font-weight: 700; font-size: 1.1rem; margin: 0;">
-                -
-              </ion-button>
-              <ion-text color="light" style="font-size: 1rem; font-weight: 700; margin: 0 8px;">
-                2
+            <ion-button routerLink="/tabs/menu" fill="outline"
+              style="--border-color: #ff4500; --color: #ff4500; --border-radius: 12px; font-weight: 600; height: 44px; text-transform: none;">
+              Ir al Menú
+            </ion-button>
+          </div>
+        }
+
+        <!-- Lista dinámica de productos en el carrito -->
+        @for (item of itemsCarrito; track item.producto.id + (item.notas || '')) {
+          <ion-row class="ion-align-items-center" style="background: #1c1c1c; border-radius: 14px; padding: 12px; margin-bottom: 12px; border: 1px solid #2a2a2a;">
+       <!-- Icono / Imagen miniatura -->
+        <ion-col size="3">
+          <div style="width: 70px; height: 65px; background: #252525; border-radius: 10px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            @if (item.producto?.imagen) {
+              <img [src]="item.producto.imagen" style="width: 100%; height: 100%; object-fit: cover;" alt="Producto">
+            } @else {
+              <ion-icon name="image" style="font-size: 20px; color: #555555;"></ion-icon>
+            }
+          </div>
+        </ion-col>
+
+
+            <!-- Datos del producto (Nombre, Precio y Notas corregido a item.notas) -->
+            <ion-col size="5" style="padding-left: 12px;">
+              <div style="color: #ffffff; font-size: 1rem; font-weight: 600; margin-bottom: 4px;">
+                {{ item.producto.nombre }}
+              </div>
+              <div style="color: #00e676; font-size: 0.95rem; font-weight: 700;">
+                {{ (item.producto.precio * item.cantidad) | currency:'MXN':'symbol':'1.2-2' }}
+              </div>
+              @if (item.notas) {
+                <div style="color: #888888; font-size: 0.75rem; margin-top: 4px; font-style: italic;">
+                  Nota: {{ item.notas }}
+                </div>
+              }
+            </ion-col>
+
+            <!-- Control de Cantidades (+ y -) -->
+            <ion-col size="4" class="ion-text-end">
+              <div style="display: inline-flex; align-items: center; background: #282828; border-radius: 8px; padding: 2px 6px;">
+                <ion-button (click)="disminuir($index)" fill="clear"
+                  style="--color: #ffffff; --padding-start: 4px; --padding-end: 4px; height: 30px; font-size: 1.1rem; margin: 0;">
+                  -
+                </ion-button>
+                <span style="color: #ffffff; font-size: 0.95rem; font-weight: 700; padding: 0 8px;">
+                  {{ item.cantidad }}
+                </span>
+                <ion-button (click)="aumentar($index)" fill="clear"
+                  style="--color: #ffffff; --padding-start: 4px; --padding-end: 4px; height: 30px; font-size: 1.1rem; margin: 0;">
+                  +
+                </ion-button>
+              </div>
+            </ion-col>
+
+          </ion-row>
+        }
+
+        <!-- Cuadro con Subtotal, IVA y Total -->
+        @if (itemsCarrito.length > 0) {
+          <div style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 14px; margin-top: 25px; margin-bottom: 25px; padding: 15px;">
+            
+            <ion-item lines="none" style="--background: transparent; min-height: 32px; --padding-start: 0; --inner-padding-end: 0;">
+              <ion-label style="color: #888888; font-size: 0.9rem;">Subtotal</ion-label>
+              <ion-text slot="end" style="color: #ffffff; font-size: 0.9rem; font-weight: 600;">
+                {{ subtotal | currency:'MXN':'symbol':'1.2-2' }}
               </ion-text>
-              <ion-button fill="clear"
-                style="--color: #ffffff; --padding-start: 4px; --padding-end: 4px; height: 30px; font-weight: 700; font-size: 1rem; margin: 0;">
-                +
-              </ion-button>
-            </div>
-          </ion-col>
-        </ion-row>
+            </ion-item>
 
-        <!-- Item 2: Alitas BBQ -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="border-bottom: 1px solid #3d4a57; padding-bottom: 18px;">
-          <ion-col size="3">
-            <ion-card
-              style="--background: #4a5866; height: 75px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 32px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4" class="ion-text-start" style="padding-left: 8px;">
-            <ion-text color="light">
-              <div style="font-size: 0.9rem; font-weight: 700; margin-bottom: 6px;">Alitas BBQ (8px)</div>
-              <div style="font-size: 1.1rem; font-weight: 700;">$120.00</div>
-            </ion-text>
-          </ion-col>
-          <ion-col size="5" class="ion-text-end">
-            <div
-              style="border: 1px solid #5a6978; border-radius: 4px; display: inline-flex; align-items: center; padding: 2px 6px; background: #212c37;">
-              <ion-button fill="clear"
-                style="--color: #ffffff; --padding-start: 4px; --padding-end: 4px; height: 30px; font-weight: 700; font-size: 1.1rem; margin: 0;">
-                -
-              </ion-button>
-              <ion-text color="light" style="font-size: 1rem; font-weight: 700; margin: 0 8px;">
-                1
+            <ion-item lines="none" style="--background: transparent; min-height: 32px; --padding-start: 0; --inner-padding-end: 0;">
+              <ion-label style="color: #888888; font-size: 0.9rem;">IVA (16%)</ion-label>
+              <ion-text slot="end" style="color: #ffffff; font-size: 0.9rem; font-weight: 600;">
+                {{ iva | currency:'MXN':'symbol':'1.2-2' }}
               </ion-text>
-              <ion-button fill="clear"
-                style="--color: #ffffff; --padding-start: 4px; --padding-end: 4px; height: 30px; font-weight: 700; font-size: 1rem; margin: 0;">
-                +
-              </ion-button>
-            </div>
-          </ion-col>
-        </ion-row>
+            </ion-item>
 
-        <!-- Cuadro con el Total -->
-        <ion-item lines="none"
-          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-top: 25px; margin-bottom: 30px; --inner-padding-end: 15px; --padding-start: 15px;">
-          <ion-label color="medium" style="font-size: 1.05rem; font-weight: 600;">Total</ion-label>
-          <ion-text color="medium" slot="end" style="font-size: 1.1rem; font-weight: 600;">
-            $240.00
-          </ion-text>
-        </ion-item>
+            <ion-item lines="none" style="--background: transparent; min-height: 48px; padding-left: 0; --border-top: 1px solid #2a2a2a; padding-top: 8px;">
+              <ion-label style="color: #ffffff; font-size: 1.1rem; font-weight: 700;">Total</ion-label>
+              <ion-text slot="end" style="color: #00e676; font-size: 1.25rem; font-weight: 700;">
+                {{ total | currency:'MXN':'symbol':'1.2-2' }}
+              </ion-text>
+            </ion-item>
 
-        <!-- Botón Continuar -->
-        <ion-button routerLink="/tabs/datosEntrega" expand="block" color="light" fill="solid"
-          style="--border-radius: 6px; font-weight: 600; height: 48px; --color: #212c37; text-transform: none; font-size: 1.05rem;">
-          Continuar
-        </ion-button>
+          </div>
+
+          <!-- Botón Proceder al Pago en Naranja Oficial -->
+          <ion-button (click)="continuarEntrega()" expand="block"
+            style="--background: #ff4500; --background-activated: #e03e00; --color: #ffffff; --border-radius: 14px; font-weight: 600; height: 52px; text-transform: none; font-size: 1.15rem; margin-bottom: 28px;">
+            Proceder al Pago
+          </ion-button>
+        }
 
       </ion-col>
     </ion-row>

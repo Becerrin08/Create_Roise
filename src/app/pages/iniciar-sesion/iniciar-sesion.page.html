@@ -1,55 +1,67 @@
-<ion-content class="ion-padding" style="--background: #212c37;">
+<ion-content class="ion-padding" style="--background: #000000;">
   <ion-grid style="height: 100%; display: flex; align-items: center; position: relative;">
-
-    <!-- Botón de regresar flotante estilo tarjeta -->
+    
+    <!-- Botón de regresar flotante arriba a la izquierda -->
     <ion-button fill="clear" routerLink="/home"
-      style="position: absolute; top: 20%; left: 0; --color: #ffffff; --background: #2d3845; --border-radius: 4px; width: 36px; height: 36px; --padding-start: 0; --padding-end: 0; margin: 0; z-index: 10;">
-      <ion-icon name="chevron-back-outline" style="font-size: 20px;"></ion-icon>
+      style="position: absolute; top: 20px; left: 0; --color: #ffffff; --background: #1c1c1c; --border-radius: 8px; width: 38px; height: 38px; --padding-start: 0; --padding-end: 0; margin: 0; z-index: 10;">
+      <ion-icon name="chevron-back-outline" style="font-size: 24px;"></ion-icon>
     </ion-button>
 
     <ion-row class="ion-justify-content-center" style="width: 100%;">
       <ion-col size="12" size-md="8" size-lg="5" class="ion-text-center">
+        
+        <!-- Logo Oficial de la Marca -->
+        <div style="height: 180px; margin: 0 auto 5px auto; display: flex; align-items: center; justify-content: center;">
+          <img src="assets/images/logoWings.jpg" alt="Logo Wing's Burger & Beers" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+        </div>
 
-        <!-- Título principal -->
-        <ion-text color="light">
-          <ion-text style="display: block; font-size: 2rem; font-weight: 700; margin-bottom: 25px;">
-            Iniciar Sesión
+        <!-- Subtítulo gris claro -->
+        <ion-text>
+          <p style="color: #888888; font-size: 1.05rem; font-weight: 600; margin-top: 0; margin-bottom: 30px;">
+            Iniciar sesión para continuar
+          </p>
+        </ion-text>
+
+        <!-- Formulario Reactivo de Login -->
+        <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+          
+          <!-- Campo Usuario / Correo -->
+          <ion-text class="ion-text-start">
+            <ion-label style="color: #ffffff; display: block; font-weight: 500; font-size: 1rem; margin-bottom: 8px;">Usuario</ion-label>
           </ion-text>
-        </ion-text>
+          
+          <ion-item lines="none" style="--background: #1c1c1c; border-radius: 12px; margin-bottom: 8px; --inner-padding-end: 12px; --padding-start: 14px; height: 50px;">
+            <ion-input type="text" formControlName="correo" placeholder="Ej. johnd o correo@ejemplo.com" style="--color: #ffffff; font-size: 1rem;"></ion-input>
+          </ion-item>
+          
+          @if (loginForm.get('correo')?.touched && loginForm.get('correo')?.invalid) {
+            <ion-text color="danger" class="ion-text-start" style="display: block; font-size: 0.8rem; margin-bottom: 12px;">
+              Ingresa un usuario o correo válido.
+            </ion-text>
+          }
 
-        <!-- Cuadro con icono de imagen -->
-        <ion-card
-          style="--background: #4a5866; height: 210px; border-radius: 4px; box-shadow: none; margin: 0 auto 30px auto; display: flex; align-items: center; justify-content: center;">
-          <ion-card-content>
-            <ion-icon name="image" style="font-size: 85px; color: #8fa0b0;"></ion-icon>
-          </ion-card-content>
-        </ion-card>
+          <!-- Campo Contraseña -->
+          <ion-text class="ion-text-start">
+            <ion-label style="color: #ffffff; display: block; font-weight: 500; font-size: 1rem; margin-top: 18px; margin-bottom: 8px;">Contraseña</ion-label>
+          </ion-text>
+          
+          <ion-item lines="none" style="--background: #1c1c1c; border-radius: 12px; margin-bottom: 8px; --inner-padding-end: 12px; --padding-start: 14px; height: 50px;">
+            <ion-input type="password" formControlName="password" placeholder="******" style="--color: #ffffff; font-size: 1rem;"></ion-input>
+          </ion-item>
+          
+          @if (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+            <ion-text color="danger" class="ion-text-start" style="display: block; font-size: 0.8rem; margin-bottom: 15px;">
+              La contraseña debe tener mínimo 6 caracteres.
+            </ion-text>
+          }
 
-        <!-- Campo Correo -->
-        <ion-text color="light" class="ion-text-start">
-          <ion-label
-            style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Correro</ion-label>
-        </ion-text>
-        <ion-item lines="none"
-          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 20px; --inner-padding-end: 0px; --padding-start: 10px;">
-          <ion-input type="email" style="--color: #ffffff; font-size: 0.95rem;"></ion-input>
-        </ion-item>
+          <!-- Botón Iniciar Sesión Naranja -->
+          <ion-button type="submit" expand="block"
+            style="--background: #ff4500; --background-activated: #e03e00; --color: #ffffff; --border-radius: 14px; font-weight: 600; height: 52px; text-transform: none; font-size: 1.15rem; margin-top: 35px;">
+            Iniciar Sesión
+          </ion-button>
 
-        <!-- Campo Contraseña -->
-        <ion-text color="light" class="ion-text-start">
-          <ion-label
-            style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Contraseña</ion-label>
-        </ion-text>
-        <ion-item lines="none"
-          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 30px; --inner-padding-end: 0px; --padding-start: 10px;">
-          <ion-input type="password" style="--color: #ffffff; font-size: 0.95rem;"></ion-input>
-        </ion-item>
-
-        <!-- Botón Iniciar -->
-        <ion-button routerLink="/tabs/inicio" expand="block" fill="outline" color="light"
-          style="--border-radius: 6px; font-weight: 600; height: 46px; text-transform: none; font-size: 1.05rem; --border-color: #6b7c8d; margin-top: 10px;">
-          Iniciar
-        </ion-button>
+        </form>
 
       </ion-col>
     </ion-row>

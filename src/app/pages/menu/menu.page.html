@@ -1,149 +1,53 @@
-<ion-content class="ion-padding" style="--background: #212c37;">
+<ion-content class="ion-padding" style="--background: #000000;">
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-md="8" size-lg="6" class="ion-text-center">
-
+      <ion-col size="12" size-md="10" size-lg="8">
+        
         <!-- Título Menú -->
-        <ion-text color="light">
-          <ion-text style="display: block; font-size: 2.2rem; font-weight: 700; margin-top: 10px; margin-bottom: 25px;">
+        <ion-text>
+          <h1 style="color: #ffffff; display: block; font-size: 1.8rem; font-weight: 700; text-align: center; margin-top: 10px; margin-bottom: 25px;">
             Menú
-          </ion-text>
+          </h1>
         </ion-text>
 
-        <!-- Item 1: Hamburguesas Clásica -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="border-bottom: 1px solid #3d4a57; padding-bottom: 15px;">
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 80px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 35px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
-          </ion-col>
-          <ion-col size="5" class="ion-text-start" style="padding-left: 10px;">
-            <ion-badge
-              style="--background: #eef2f5; --color: #212c37; font-size: 0.8rem; padding: 5px 10px; font-weight: 700; border-radius: 4px; margin-bottom: 8px;">
-              <ion-icon name="fast-food-outline" style="margin-right: 4px; font-size: 0.85rem;"></ion-icon>
-              Hamburguesas Clásica
-            </ion-badge>
-            <ion-text color="light">
-              <div style="font-size: 1.3rem; font-weight: 700;">$120.00</div>
-            </ion-text>
-          </ion-col>
-          <ion-col size="3" class="ion-text-end">
-            <ion-button routerLink="/tabs/detalle" fill="outline" color="light"
-              style="--border-radius: 6px; width: 44px; height: 44px; --border-color: #6b7c8d; --padding-start: 0; --padding-end: 0; margin: 0;">
-              <ion-icon name="add-outline" style="font-size: 22px;"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
+        <!-- Render dinámico de productos -->
+        <div *ngFor="let prod of productos"
+          style="display: flex; align-items: center; justify-content: space-between; background: #1c1c1c; border-radius: 14px; padding: 12px; margin-bottom: 15px; border: 1px solid #2a2a2a;">
+          
+          <!-- Imagen / Icono del producto (Clickeable) -->
+          <div (click)="seleccionarProducto(prod)"
+            style="width: 75px; height: 75px; background: #252525; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; overflow: hidden;">
+            @if (prod.imagen) {
+              <img [src]="prod.imagen" style="width: 100%; height: 100%; object-fit: cover;" [alt]="prod.nombre">
+            } @else {
+              <ion-icon name="image" style="font-size: 32px; color: #555555;"></ion-icon>
+            }
+          </div>
 
-        <!-- Item 2: Alitas BBQ -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="border-bottom: 1px solid #3d4a57; padding-bottom: 15px;">
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 80px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 35px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
-          </ion-col>
-          <ion-col size="5" class="ion-text-start" style="padding-left: 10px;">
-            <ion-badge
-              style="--background: #eef2f5; --color: #212c37; font-size: 0.8rem; padding: 5px 10px; font-weight: 700; border-radius: 4px; margin-bottom: 8px;">
-              <ion-icon name="flame-outline" style="margin-right: 4px; font-size: 0.85rem;"></ion-icon>
-              Alitas BBQ (8pz)
+          <!-- Información del Producto -->
+          <div style="flex-grow: 1; padding: 0 15px; cursor: pointer;" (click)="seleccionarProducto(prod)">
+            
+            <!-- Badge de categoría / nombre del producto -->
+            <ion-badge style="background: #282828; color: #ffffff; font-size: 0.8rem; padding: 5px 10px; font-weight: 600; border-radius: 6px; display: inline-flex; align-items: center; margin-bottom: 4px;">
+              <ion-icon [name]="obtenerIconoCategoria(prod)" style="margin-right: 4px; font-size: 0.85rem; color: #ff4500;"></ion-icon>
+              {{ prod.nombre }}
             </ion-badge>
-            <ion-text color="light">
-              <div style="font-size: 1.3rem; font-weight: 700;">$140.00</div>
-            </ion-text>
-          </ion-col>
-          <ion-col size="3" class="ion-text-end">
-            <ion-button routerLink="/tabs/detalle" fill="outline" color="light"
-              style="--border-radius: 6px; width: 44px; height: 44px; --border-color: #6b7c8d; --padding-start: 0; --padding-end: 0; margin: 0;">
-              <ion-icon name="add-outline" style="font-size: 22px;"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
 
-        <!-- Item 3: Alitas Búfalo -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="border-bottom: 1px solid #3d4a57; padding-bottom: 15px;">
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 80px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 35px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
-          </ion-col>
-          <ion-col size="5" class="ion-text-start" style="padding-left: 10px;">
-            <ion-badge
-              style="--background: #eef2f5; --color: #212c37; font-size: 0.8rem; padding: 5px 10px; font-weight: 700; border-radius: 4px; margin-bottom: 8px;">
-              <ion-icon name="flame-outline" style="margin-right: 4px; font-size: 0.85rem;"></ion-icon>
-              Alitas Búfalo (8pz)
-            </ion-badge>
-            <ion-text color="light">
-              <div style="font-size: 1.3rem; font-weight: 700;">$140.00</div>
-            </ion-text>
-          </ion-col>
-          <ion-col size="3" class="ion-text-end">
-            <ion-button routerLink="/tabs/detalle" fill="outline" color="light"
-              style="--border-radius: 6px; width: 44px; height: 44px; --border-color: #6b7c8d; --padding-start: 0; --padding-end: 0; margin: 0;">
-              <ion-icon name="add-outline" style="font-size: 22px;"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
+            <!-- Precio -->
+            <div style="color: #00e676; font-size: 1.1rem; font-weight: 700;">
+              {{ prod.precio | currency:'MXN':'symbol':'1.2-2' }}
+            </div>
+          </div>
 
-        <!-- Item 4: Coca-cola -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="border-bottom: 1px solid #3d4a57; padding-bottom: 15px;">
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 80px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 35px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
-          </ion-col>
-          <ion-col size="5" class="ion-text-start" style="padding-left: 10px;">
-            <ion-badge
-              style="--background: #eef2f5; --color: #212c37; font-size: 0.8rem; padding: 5px 10px; font-weight: 700; border-radius: 4px; margin-bottom: 8px;">
-              <ion-icon name="pint-outline" style="margin-right: 4px; font-size: 0.85rem;"></ion-icon>
-              Coca-cola
-            </ion-badge>
-            <ion-text color="light">
-              <div style="font-size: 1.3rem; font-weight: 700;">$30.00</div>
-            </ion-text>
-          </ion-col>
-          <ion-col size="3" class="ion-text-end">
-            <ion-button routerLink="/tabs/detalle" fill="outline" color="light"
-              style="--border-radius: 6px; width: 44px; height: 44px; --border-color: #6b7c8d; --padding-start: 0; --padding-end: 0; margin: 0;">
-              <ion-icon name="add-outline" style="font-size: 22px;"></ion-icon>
+          <!-- Botón de acción (+) en Naranja Oficial -->
+          <div>
+            <ion-button (click)="seleccionarProducto(prod)" fill="solid"
+              style="--background: #ff4500; --background-activated: #e03e00; --color: #ffffff; --border-radius: 10px; width: 44px; height: 44px; --padding-start: 0; --padding-end: 0; margin: 0;">
+              <ion-icon name="add-outline" style="font-size: 24px;"></ion-icon>
             </ion-button>
-          </ion-col>
-        </ion-row>
+          </div>
 
-        <!-- Item 5: Cerveza -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="border-bottom: 1px solid #3d4a57; padding-bottom: 15px;">
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 80px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 35px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
-          </ion-col>
-          <ion-col size="5" class="ion-text-start" style="padding-left: 10px;">
-            <ion-badge
-              style="--background: #eef2f5; --color: #212c37; font-size: 0.8rem; padding: 5px 10px; font-weight: 700; border-radius: 4px; margin-bottom: 8px;">
-              <ion-icon name="beer-outline" style="margin-right: 4px; font-size: 0.85rem;"></ion-icon>
-              Cerveza
-            </ion-badge>
-            <ion-text color="light">
-              <div style="font-size: 1.3rem; font-weight: 700;">$45.00</div>
-            </ion-text>
-          </ion-col>
-          <ion-col size="3" class="ion-text-end">
-            <ion-button routerLink="/tabs/detalle" fill="outline" color="light"
-              style="--border-radius: 6px; width: 44px; height: 44px; --border-color: #6b7c8d; --padding-start: 0; --padding-end: 0; margin: 0;">
-              <ion-icon name="add-outline" style="font-size: 22px;"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
+        </div>
 
       </ion-col>
     </ion-row>

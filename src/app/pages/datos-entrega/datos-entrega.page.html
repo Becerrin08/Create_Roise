@@ -1,135 +1,140 @@
-<ion-content class="ion-padding" style="--background: #212c37; padding-bottom: 80px;">
+<ion-content class="ion-padding" style="--background: #000000; padding-bottom: 20px;">
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size="12" size-md="8" size-lg="6">
-
-        <!-- Header con botón de regresar -->
-        <ion-row class="ion-align-items-center ion-margin-bottom"
-          style="position: relative; margin-top: 10px; margin-bottom: 20px;">
+        
+        <!-- Header con botón de regresar estilo Pro y título centrado -->
+        <ion-row class="ion-align-items-center ion-margin-bottom" style="position: relative; margin-top: 5px; margin-bottom: 25px;">
           <ion-col size="auto" style="position: absolute; left: 0; z-index: 10;">
             <ion-button fill="clear" routerLink="/tabs/carrito"
-              style="--color: #ffffff; --padding-start: 0; --padding-end: 0; margin: 0; width: 40px; height: 40px;">
-              <ion-icon name="arrow-back-circle-outline" style="font-size: 38px;"></ion-icon>
+              style="--color: #ffffff; --background: #1c1c1c; --border-radius: 10px; width: 42px; height: 42px; --padding-start: 0; --padding-end: 0; margin: 0; border: none; --border-color: transparent; box-shadow: none; --box-shadow: none; font-size: 22px; font-weight: 700;">
+                <
+              <ion-icon name="chevron-back-outline" style="font-size: 22px;"></ion-icon>
             </ion-button>
           </ion-col>
+          
           <ion-col class="ion-text-center">
-            <ion-text color="light">
-              <ion-text style="display: block; font-size: 1.8rem; font-weight: 700;">
+            <ion-text>
+              <h1 style="color: #ffffff; display: block; font-size: 1.8rem; font-weight: 700; margin: 0;">
                 Datos de Entrega
-              </ion-text>
+              </h1>
             </ion-text>
           </ion-col>
         </ion-row>
 
         <!-- Campo Dirección -->
-        <ion-text color="light" class="ion-text-start">
-          <ion-label
-            style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Dirección</ion-label>
-        </ion-text>
-        <ion-item lines="none"
-          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 18px; --inner-padding-end: 0px; --padding-start: 10px;">
-          <ion-input type="text" placeholder="Calle, número, colonia" color="light"
-            style="--color: #ffffff; --placeholder-color: #718096; font-size: 0.95rem;"></ion-input>
-        </ion-item>
+        <div style="margin-bottom: 20px;">
+          <label style="color: #ffffff; display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">
+            Dirección
+          </label>
+          <ion-item lines="none" style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; --padding-start: 12px; --inner-padding-end: 12px;">
+            <ion-input type="text" [(ngModel)]="direccion" placeholder="Calle, número, colonia"
+              style="color: #ffffff; --placeholder-color: #666666; font-size: 0.95rem;">
+            </ion-input>
+          </ion-item>
+        </div>
 
         <!-- Campo Teléfono -->
-        <ion-text color="light" class="ion-text-start">
-          <ion-label
-            style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Telefono</ion-label>
-        </ion-text>
-        <ion-item lines="none"
-          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 25px; --inner-padding-end: 0px; --padding-start: 10px;">
-          <ion-input type="tel" placeholder="10 Digitos" color="light"
-            style="--color: #ffffff; --placeholder-color: #718096; font-size: 0.95rem;"></ion-input>
-        </ion-item>
+        <div style="margin-bottom: 25px;">
+          <label style="color: #ffffff; display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">
+            Teléfono
+          </label>
+          <ion-item lines="none" style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; --padding-start: 12px; --inner-padding-end: 12px;">
+            <ion-input type="tel" maxlength="10" [(ngModel)]="telefono" placeholder="10 Dígitos"
+              style="color: #ffffff; --placeholder-color: #666666; font-size: 0.95rem;">
+            </ion-input>
+          </ion-item>
+        </div>
 
-        <!-- Selección Método de pago -->
-        <ion-text color="light" class="ion-text-start">
-          <ion-label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 12px;">Metodo de
-            pago</ion-label>
-        </ion-text>
-
-        <ion-row class="ion-margin-bottom" style="margin-bottom: 25px;">
-          <ion-col size="6" style="padding-right: 6px;">
-            <ion-button expand="block" [fill]="metodoPago === 'tarjeta' ? 'solid' : 'outline'"
-              [color]="metodoPago === 'tarjeta' ? 'light' : 'medium'" (click)="seleccionarMetodo('tarjeta')"
-              style="--border-radius: 4px; font-weight: 600; height: 44px; text-transform: none; font-size: 1rem; --border-color: #5a6978; --color: #ffffff; margin: 0;">
-              Tarjeta
-            </ion-button>
-          </ion-col>
-          <ion-col size="6" style="padding-left: 6px;">
-            <ion-button expand="block" [fill]="metodoPago === 'efectivo' ? 'solid' : 'outline'"
-              [color]="metodoPago === 'efectivo' ? 'light' : 'medium'" (click)="seleccionarMetodo('efectivo')"
-              style="--border-radius: 4px; font-weight: 600; height: 44px; text-transform: none; font-size: 1rem; --border-color: #5a6978; --color: #ffffff; margin: 0;">
-              Efectivo
-            </ion-button>
-          </ion-col>
-        </ion-row>
+        <!-- Selección Método de pago (Sin bordes molestos) -->
+        <div style="margin-bottom: 20px;">
+          <label style="color: #ffffff; display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;">
+            Método de pago (Total: ${{ total?.toFixed(2) }})
+          </label>
+          
+          <ion-row>
+            <ion-col size="6" style="padding-left: 0; padding-right: 6px;">
+              <ion-button expand="block" (click)="seleccionarMetodo('tarjeta')"
+                [style.--background]="metodoPago === 'tarjeta' ? '#ff4500' : '#1c1c1c'"
+                [style.--color]="'#ffffff'"
+                style="--border-radius: 12px; font-weight: 600; height: 44px; text-transform: none; font-size: 0.95rem; border: none; --border-color: transparent; box-shadow: none; --box-shadow: none;">
+                Tarjeta
+              </ion-button>
+            </ion-col>
+            <ion-col size="6" style="padding-right: 0; padding-left: 6px;">
+              <ion-button expand="block" (click)="seleccionarMetodo('efectivo')"
+                [style.--background]="metodoPago === 'efectivo' ? '#ff4500' : '#1c1c1c'"
+                [style.--color]="'#ffffff'"
+                style="--border-radius: 12px; font-weight: 600; height: 44px; text-transform: none; font-size: 0.95rem; border: none; --border-color: transparent; box-shadow: none; --box-shadow: none;">
+                Efectivo
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
 
         <!-- FORMULARIO TARJETA -->
         @if (metodoPago === 'tarjeta') {
-        <ion-text color="light" class="ion-text-start">
-          <ion-label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Número de
-            tarjeta</ion-label>
-        </ion-text>
-        <ion-item lines="none"
-          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 18px; --inner-padding-end: 0px; --padding-start: 10px;">
-          <ion-input type="text" placeholder="0000 0000 0000 0000" color="light"
-            style="--color: #ffffff; --placeholder-color: #718096; font-size: 0.95rem;"></ion-input>
-        </ion-item>
-
-        <ion-text color="light" class="ion-text-start">
-          <ion-label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Nombre de la
-            tarjeta</ion-label>
-        </ion-text>
-        <ion-item lines="none"
-          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 18px; --inner-padding-end: 0px; --padding-start: 10px;">
-          <ion-input type="text" placeholder="Como aparece en su tarjeta" color="light"
-            style="--color: #ffffff; --placeholder-color: #718096; font-size: 0.95rem;"></ion-input>
-        </ion-item>
-
-        <ion-row>
-          <ion-col size="6" style="padding-right: 6px;">
-            <ion-text color="light" class="ion-text-start">
-              <ion-label
-                style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">Vencimiento</ion-label>
-            </ion-text>
-            <ion-item lines="none"
-              style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 25px; --inner-padding-end: 0px; --padding-start: 10px;">
-              <ion-input type="text" placeholder="MM/AA" color="light"
-                style="--color: #ffffff; --placeholder-color: #718096; font-size: 0.95rem; text-align: center;"></ion-input>
+          <div style="margin-bottom: 20px;">
+            <label style="color: #ffffff; display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">
+              Número de tarjeta (Sandbox MP)
+            </label>
+            <ion-item lines="none" style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; margin-bottom: 16px; --padding-start: 12px; --inner-padding-end: 12px;">
+              <ion-input type="text" maxlength="19" [(ngModel)]="numeroTarjeta" placeholder="4509 0000 0000 1234"
+                style="color: #ffffff; --placeholder-color: #666666; font-size: 0.95rem;">
+              </ion-input>
             </ion-item>
-          </ion-col>
-          <ion-col size="6" style="padding-left: 6px;">
-            <ion-text color="light" class="ion-text-start">
-              <ion-label
-                style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">CVV</ion-label>
-            </ion-text>
-            <ion-item lines="none"
-              style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 25px; --inner-padding-end: 0px; --padding-start: 10px;">
-              <ion-input type="password" maxlength="4" placeholder="123" color="light"
-                style="--color: #ffffff; --placeholder-color: #718096; font-size: 0.95rem; text-align: center;"></ion-input>
+
+            <label style="color: #ffffff; display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">
+              Nombre de la tarjeta
+            </label>
+            <ion-item lines="none" style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; margin-bottom: 16px; --padding-start: 12px; --inner-padding-end: 12px;">
+              <ion-input type="text" [(ngModel)]="nombreTarjeta" placeholder="Como aparece en su tarjeta"
+                style="color: #ffffff; --placeholder-color: #666666; font-size: 0.95rem;">
+              </ion-input>
             </ion-item>
-          </ion-col>
-        </ion-row>
+
+            <ion-row>
+              <ion-col size="6" style="padding-left: 0; padding-right: 6px;">
+                <label style="color: #ffffff; display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">
+                  Vencimiento
+                </label>
+                <ion-item lines="none" style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; --padding-start: 12px; --inner-padding-end: 12px;">
+                  <ion-input type="text" maxlength="5" [(ngModel)]="vencimiento" placeholder="MM/AA"
+                    style="color: #ffffff; --placeholder-color: #666666; font-size: 0.95rem; text-align: center;">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6" style="padding-right: 0; padding-left: 6px;">
+                <label style="color: #ffffff; display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">
+                  CVV
+                </label>
+                <ion-item lines="none" style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; --padding-start: 12px; --inner-padding-end: 12px;">
+                  <ion-input type="password" maxlength="4" [(ngModel)]="cvv" placeholder="123"
+                    style="color: #ffffff; --placeholder-color: #666666; font-size: 0.95rem; text-align: center;">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </div>
         }
 
         <!-- FORMULARIO EFECTIVO -->
         @if (metodoPago === 'efectivo') {
-        <ion-text color="light" class="ion-text-start">
-          <ion-label style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;">¿Con cuánto vas a
-            pagar?</ion-label>
-        </ion-text>
-        <ion-item lines="none"
-          style="--background: #212c37; --border-color: #5a6978; border: 1px solid #5a6978; border-radius: 4px; margin-bottom: 30px; --inner-padding-end: 0px; --padding-start: 10px;">
-          <ion-input type="number" placeholder="Ej. 300" color="light"
-            style="--color: #ffffff; --placeholder-color: #718096; font-size: 0.95rem;"></ion-input>
-        </ion-item>
+          <div style="margin-bottom: 20px;">
+            <label style="color: #ffffff; display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">
+              ¿Con cuánto vas a pagar?
+            </label>
+            <ion-item lines="none" style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; --padding-start: 12px; --inner-padding-end: 12px;">
+              <ion-input type="number" [(ngModel)]="montoEfectivo" placeholder="Ej. 500"
+                style="color: #ffffff; --placeholder-color: #666666; font-size: 0.95rem;">
+              </ion-input>
+            </ion-item>
+          </div>
         }
 
-        <!-- Botón Confirmar Pedido -->
-        <ion-button routerLink="/tabs/carrito" expand="block" color="light" fill="solid"
-          style="--border-radius: 6px; font-weight: 600; height: 48px; --color: #212c37; text-transform: none; font-size: 1.05rem; margin-top: 10px;">
+        <!-- Botón Confirmar Pedido en Naranja Oficial -->
+        <ion-button (click)="confirmarPedido()" expand="block"
+          style="--background: #ff4500; --background-activated: #e03e00; --color: #ffffff; --border-radius: 14px; font-weight: 600; height: 52px; text-transform: none; font-size: 1.15rem; margin-top: 25px; margin-bottom: 25px;">
           Confirmar Pedido
         </ion-button>
 

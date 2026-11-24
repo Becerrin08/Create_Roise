@@ -1,42 +1,62 @@
-<ion-content class="ion-padding" style="--background: #212c37; padding-bottom: 80px;">
+<ion-content class="ion-padding" style="--background: #000000;">
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-md="8" size-lg="6" class="ion-text-center">
-
+      <ion-col size="12" size-md="10" size-lg="8">
+        
         <!-- Título Mis Pedidos -->
-        <ion-text color="light">
-          <ion-text style="display: block; font-size: 2.2rem; font-weight: 700; margin-top: 10px; margin-bottom: 30px;">
+        <ion-text>
+          <h1 style="color: #ffffff; display: block; font-size: 1.8rem; font-weight: 700; text-align: center; margin-top: 10px; margin-bottom: 25px;">
             Mis Pedidos
-          </ion-text>
+          </h1>
         </ion-text>
 
-        <!-- Pedido #98 -->
-        <ion-row class="ion-align-items-center ion-justify-content-between ion-margin-bottom" style="border-bottom: 1px solid #3d4a57; padding-bottom: 16px;">
-          <ion-col size="auto">
-            <ion-text color="light">
-              <div style="font-size: 1.4rem; font-weight: 700;">Pedido #98</div>
+        <!-- Mensaje si no hay compras -->
+        @if (historial.length === 0) {
+          <div class="ion-text-center" style="margin: 60px 0;">
+            <ion-text style="color: #888888; display: block; font-size: 1.1rem; margin-bottom: 20px;">
+              No hay pedidos registrados en tu historial.
             </ion-text>
-          </ion-col>
-          <ion-col size="auto">
-            <ion-button fill="outline" color="light" style="--border-radius: 4px; font-weight: 600; height: 36px; text-transform: none; font-size: 0.85rem; --border-color: #6b7c8d; margin: 0;">
-              Entregado
-            </ion-button>
-          </ion-col>
-        </ion-row>
+          </div>
+        }
 
-        <!-- Pedido #97 -->
-        <ion-row class="ion-align-items-center ion-justify-content-between ion-margin-bottom" style="border-bottom: 1px solid #3d4a57; padding-bottom: 16px;">
-          <ion-col size="auto">
-            <ion-text color="light">
-              <div style="font-size: 1.4rem; font-weight: 700;">Pedido #97</div>
-            </ion-text>
-          </ion-col>
-          <ion-col size="auto">
-            <ion-button fill="outline" color="light" style="--border-radius: 4px; font-weight: 600; height: 36px; text-transform: none; font-size: 0.85rem; --border-color: #6b7c8d; margin: 0;">
-              Entregado
-            </ion-button>
-          </ion-col>
-        </ion-row>
+        <!-- Render dinámico del historial de compras -->
+        @for (compra of historial; track compra.id) {
+          <ion-row class="ion-align-items-center ion-justify-content-between" style="background: #1c1c1c; border-radius: 14px; padding: 14px; margin-bottom: 12px; border: 1px solid #2a2a2a;">
+            
+            <!-- Información del Pedido -->
+            <ion-col size="7">
+              <div style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 4px;">
+                Pedido #{{ compra.id }}
+              </div>
+              <div style="color: #aaaaaa; font-size: 0.8rem; margin-bottom: 6px;">
+                {{ compra.fecha }} | Folio: {{ compra.folioPago }}
+              </div>
+              <div style="color: #00e676; font-size: 1rem; font-weight: 700;">
+                Total: {{ compra.total | currency:'MXN':'symbol':'1.2-2' }}
+              </div>
+            </ion-col>
+
+            <!-- Botones de Acción (Cada uno con el parámetro exacto) -->
+            <ion-col size="5" class="ion-text-end">
+              <div style="display: flex; gap: 8px; justify-content: flex-end; align-items: center;">
+                
+                <!-- Botón Editar / Estatus (Recibe objeto compra) -->
+                <ion-button (click)="editarPedido(compra)" fill="outline"
+                  style="--border-color: #ff4500; --color: #ff4500; --border-radius: 8px; font-weight: 600; height: 36px; font-size: 0.8rem; text-transform: none; --padding-start: 10px; --padding-end: 10px; margin: 0;">
+                  {{ compra.estadoPedido }}
+                </ion-button>
+                
+                <!-- Botón Eliminar (Recibe número compra.id) -->
+                <ion-button (click)="eliminarPedido(compra.id)" fill="clear"
+                  style="--color: #ff5252; width: 36px; height: 36px; --padding-start: 0; --padding-end: 0; margin: 0;">
+                  <ion-icon name="trash-outline" style="font-size: 20px;"></ion-icon>
+                </ion-button>
+
+              </div>
+            </ion-col>
+
+          </ion-row>
+        }
 
       </ion-col>
     </ion-row>

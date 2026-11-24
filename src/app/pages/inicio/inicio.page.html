@@ -1,112 +1,141 @@
-<ion-content class="ion-padding" style="--background: #212c37; padding-bottom: 80px;">
+<ion-content class="ion-padding" style="--background: #000000; padding-bottom: 30px;">
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-md="8" size-lg="6" class="ion-text-center">
-
+      <ion-col size="12" size-md="8" size-lg="6">
+        
         <!-- Título Inicio -->
-        <ion-text color="light">
-          <ion-text style="display: block; font-size: 2.2rem; font-weight: 700; margin-top: 10px; margin-bottom: 20px;">
+        <ion-text class="ion-text-center" style="display: block; margin-top: 5px; margin-bottom: 25px;">
+          <h1 style="color: #ffffff; font-size: 1.8rem; font-weight: 700; margin: 0;">
             Inicio
-          </ion-text>
+          </h1>
         </ion-text>
 
-        <!-- Subtítulo "Hola de Nuevo!!" -->
-        <ion-text color="light" class="ion-text-start">
-          <ion-text style="display: block; font-size: 1.1rem; font-weight: 600; margin-bottom: 12px;">
-            Hola de Nuevo!!
-          </ion-text>
+        <!-- Subtítulo Hola de Nuevo!! dinámico -->
+        <ion-text class="ion-text-start">
+          <p style="color: #aaaaaa; display: block; font-size: 1.1rem; font-weight: 600; margin-bottom: 15px;">
+            ¡Hola de Nuevo! , {{ nombreUsuario }}
+          </p>
         </ion-text>
 
-        <!-- Imagen Banner Principal -->
-        <ion-card
-          style="--background: #4a5866; height: 180px; border-radius: 4px; box-shadow: none; margin: 0 0 25px 0; display: flex; align-items: center; justify-content: center;">
-          <ion-card-content>
-            <ion-icon name="image" style="font-size: 80px; color: #8fa0b0;"></ion-icon>
+        <!-- Banner con el Logo más pequeño -->
+        <ion-card style="background: #1c1c1c; height: 100px; border-radius: 14px; box-shadow: none; margin: 0 0 25px 0; display: flex; align-items: center; justify-content: center; border: 1px solid #2a2a2a; overflow: hidden;">
+          <ion-card-content style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 0;">
+            <img src="assets/images/logoWings.jpg" style="max-height: 80%; max-width: 80%; object-fit: contain; border-radius: 8px;" alt="Logo Wing's Burger & Beers">
           </ion-card-content>
         </ion-card>
 
         <!-- Sección Categorías -->
-        <ion-text color="light" class="ion-text-start">
-          <ion-text style="display: block; font-size: 1.2rem; font-weight: 700; margin-bottom: 15px;">
-            Categorias
-          </ion-text>
+        <ion-text class="ion-text-start">
+          <h2 style="color: #ffffff; display: block; font-size: 1.4rem; font-weight: 700; margin-bottom: 15px;">
+            Categorías
+          </h2>
         </ion-text>
 
-        <!-- Categoría 1: Hamburguesas -->
+        <!-- Categoria 1: Hamburguesas -->
         <ion-row class="ion-align-items-center" style="margin-bottom: 12px;">
           <ion-col size="auto">
-            <ion-badge
-              style="--background: #eef2f5; --color: #212c37; font-size: 0.85rem; padding: 6px 14px; font-weight: 700; border-radius: 4px;">
+            <ion-badge style="background: #1c1c1c; color: #ffffff; font-size: 0.95rem; padding: 6px 14px; font-weight: 600; border-radius: 8px; border: 1px solid #2a2a2a;">
               Hamburguesas
             </ion-badge>
           </ion-col>
           <ion-col>
-            <div style="width: 100%; height: 1px; background-color: #5a6978;"></div>
+            <div style="width: 100%; height: 1px; background-color: #2a2a2a;"></div>
           </ion-col>
         </ion-row>
 
-        <!-- Tarjetas Hamburguesas (3 columnas) -->
-        <ion-row class="ion-margin-bottom">
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 75px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 32px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
+        <!-- Tarjetas Hamburguesas -->
+        <ion-row style="margin-bottom: 25px;">
+          <!-- Clásica -->
+          <ion-col size="4" (click)="verProducto(hamburguesas[0])" style="cursor: pointer; padding: 4px;">
+            <div style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; padding: 8px; text-align: center; height: 130px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="height: 65px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/burguerclasica.jpg" style="max-height: 100%; max-width: 100%; border-radius: 8px; object-fit: cover;" alt="Clásica">
+              </div>
+              <span style="color: #ffffff; font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px;">Clásica</span>
+              <span style="color: #00e676; font-size: 0.75rem; font-weight: 700;">MX$120</span>
+            </div>
           </ion-col>
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 75px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 32px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
+
+          <!-- Beacon -->
+          <ion-col size="4" (click)="verProducto(hamburguesas[1])" style="cursor: pointer; padding: 4px;">
+            <div style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; padding: 8px; text-align: center; height: 130px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="height: 65px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/beaconburguer.jpg" style="max-height: 100%; max-width: 100%; border-radius: 8px; object-fit: cover;" alt="Beacon">
+              </div>
+              <span style="color: #ffffff; font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px;">Beacon</span>
+              <span style="color: #00e676; font-size: 0.75rem; font-weight: 700;">MX$135</span>
+            </div>
           </ion-col>
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 75px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 32px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
+
+          <!-- Hawaiana -->
+          <ion-col size="4" (click)="verProducto(hamburguesas[2])" style="cursor: pointer; padding: 4px;">
+            <div style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; padding: 8px; text-align: center; height: 130px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="height: 65px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/burguerhawaiana.jpg" style="max-height: 100%; max-width: 100%; border-radius: 8px; object-fit: cover;" alt="Hawaiana">
+              </div>
+              <span style="color: #ffffff; font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px;">Hawaiana</span>
+              <span style="color: #00e676; font-size: 0.75rem; font-weight: 700;">MX$130</span>
+            </div>
           </ion-col>
         </ion-row>
 
-        <!-- Categoría 2: Alitas -->
+        <!-- Categoria 2: Alitas -->
         <ion-row class="ion-align-items-center" style="margin-bottom: 12px;">
           <ion-col size="auto">
-            <ion-badge
-              style="--background: #eef2f5; --color: #212c37; font-size: 0.85rem; padding: 6px 18px; font-weight: 700; border-radius: 4px;">
+            <ion-badge style="background: #1c1c1c; color: #ffffff; font-size: 0.95rem; padding: 6px 14px; font-weight: 600; border-radius: 8px; border: 1px solid #2a2a2a;">
               Alitas
             </ion-badge>
           </ion-col>
           <ion-col>
-            <div style="width: 100%; height: 1px; background-color: #5a6978;"></div>
+            <div style="width: 100%; height: 1px; background-color: #2a2a2a;"></div>
           </ion-col>
         </ion-row>
 
-        <!-- Tarjetas Alitas (3 columnas) -->
+        <!-- Tarjetas Alitas -->
         <ion-row style="margin-bottom: 25px;">
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 75px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 32px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
+          <!-- Naturales -->
+          <ion-col size="4" (click)="verProducto(alitas[0])" style="cursor: pointer; padding: 4px;">
+            <div style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; padding: 8px; text-align: center; height: 130px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="height: 65px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/alitasnaturales.jpg" style="max-height: 100%; max-width: 100%; border-radius: 8px; object-fit: cover;" alt="Naturales">
+              </div>
+              <span style="color: #ffffff; font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px;">Naturales</span>
+              <span style="color: #00e676; font-size: 0.75rem; font-weight: 700;">MX$110</span>
+            </div>
           </ion-col>
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 75px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 32px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
+
+          <!-- BBQ -->
+          <ion-col size="4" (click)="verProducto(alitas[1])" style="cursor: pointer; padding: 4px;">
+            <div style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; padding: 8px; text-align: center; height: 130px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="height: 65px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/alitasbbq.jpg" style="max-height: 100%; max-width: 100%; border-radius: 8px; object-fit: cover;" alt="BBQ">
+              </div>
+              <span style="color: #ffffff; font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px;">BBQ</span>
+              <span style="color: #00e676; font-size: 0.75rem; font-weight: 700;">MX$125</span>
+            </div>
           </ion-col>
-          <ion-col size="4">
-            <ion-card
-              style="--background: #4a5866; height: 75px; border-radius: 4px; box-shadow: none; margin: 0; display: flex; align-items: center; justify-content: center;">
-              <ion-icon name="image" style="font-size: 32px; color: #8fa0b0;"></ion-icon>
-            </ion-card>
+
+          <!-- Búfalo -->
+          <ion-col size="4" (click)="verProducto(alitas[2])" style="cursor: pointer; padding: 4px;">
+            <div style="background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 12px; padding: 8px; text-align: center; height: 130px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="height: 65px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/alitasbufalo.jpg" style="max-height: 100%; max-width: 100%; border-radius: 8px; object-fit: cover;" alt="Búfalo">
+              </div>
+              <span style="color: #ffffff; font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px;">Búfalo</span>
+              <span style="color: #00e676; font-size: 0.75rem; font-weight: 700;">MX$125</span>
+            </div>
           </ion-col>
         </ion-row>
 
         <!-- Botón Ver menú completo -->
-        <ion-button routerLink="/tabs/menu" expand="block" fill="outline" color="light"
-          style="--border-radius: 6px; font-weight: 600; height: 46px; text-transform: none; font-size: 1.05rem; --border-color: #6b7c8d; margin-bottom: 20px;">
-          Ver menú completo
-        </ion-button>
+        <ion-row>
+          <ion-col size="12" style="padding: 0;">
+            <ion-button routerLink="/tabs/menu" expand="block"
+              style="--background: #ff4500; --background-activated: #e03e00; --color: #ffffff; --border-radius: 14px; height: 52px; text-transform: none; font-size: 1.15rem; font-weight: 600; box-shadow: none;">
+              Ver menú completo
+            </ion-button>
+          </ion-col>
+        </ion-row>
 
       </ion-col>
     </ion-row>

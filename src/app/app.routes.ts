@@ -39,7 +39,7 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/carrito/carrito.page').then((m) => m.CarritoPage),
       },
       {
-        path: 'datosEntrega',
+        path: 'datos-entrega',
         loadComponent: () => import('./pages/datos-entrega/datos-entrega.page').then((m) => m.DatosEntregaPage),
       },
       {
