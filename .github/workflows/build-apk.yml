@@ -1,5 +1,5 @@
 name: Build Android APK
-
+  # cada vez que se haga un push a la rama cristopher, se ejecutará este workflow para construir el APK de Android.
 on:
   push:
     branches: [ cristopher ]
@@ -11,6 +11,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+    # instalar JDK 21 y Node.js 24, luego instalar dependencias de Node.js, construir la aplicación web con Ionic, agregar y sincronizar la plataforma Android con Capacitor, construir el APK con Gradle y finalmente subir el APK como un artefacto.
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -32,12 +33,14 @@ jobs:
           npx cap add android || true
           npx cap sync android
 
+# genera el APK de Android en modo debug y lo sube como un artefacto para que pueda ser descargado desde la interfaz de GitHub Actions.
       - name: Build APK with Gradle
         run: |
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
 
+# toma ese APK generado y lo sube como un artefacto llamado "app-debug" para que pueda ser descargado desde la interfaz de GitHub Actions.
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
